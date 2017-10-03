@@ -14,3 +14,4 @@ C:\Projects\Typer\AccessLayer\Typer.Database.Migrations\bin\Debug\Typer.Database
 C:\Projects\Typer\AccessLayer\Typer.Database.Migrations\bin\Debug\Typer.Database.Models.dll.config
 C:\Projects\Typer\AccessLayer\Typer.Database.Migrations\obj\Debug\Typer.Database.Migrations.Migrations.add_team.resources
 C:\Projects\Typer\AccessLayer\Typer.Database.Migrations\obj\Debug\Typer.Database.Migrations.csproj.GenerateResource.Cache
+C:\Projects\Typer\AccessLayer\Typer.Database.Migrations\obj\Debug\Typer.Database.Migrations.Migrations.addUser_USerRoles.resources

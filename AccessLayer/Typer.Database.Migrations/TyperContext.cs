@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Typer.Database.Models.Models;
+﻿using System.Data.Entity;
+using Typer.Database.Models;
 
 namespace Typer.Database.Migrations
 {
     public class TyperContext : DbContext
     {
         public DbSet<DbTeam> DbTeams { get; set; }
+        public DbSet<DbUserRole> DbUserRoles { get; set; }
+        public DbSet<DbUser> DbUsers { get; set; }
     }
 }

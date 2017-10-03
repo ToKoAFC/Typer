@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\DbTeam.cs" />
+    <Compile Include="Models\DbUser.cs" />
+    <Compile Include="Models\DbUserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

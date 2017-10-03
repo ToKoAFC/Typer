@@ -8,11 +8,18 @@ using System.Threading.Tasks;
 
 namespace Typer.Database.Models
 {
-    public class DbTeam
+    public class DbUserRole
     {
+        public DbUserRole()
+        {
+            Users = new HashSet<DbUser>();
+        }
+
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int TeamId { get; set; }
-        public string TeamName { get; set; }
-        
+        public int RoleId { get; set; }
+
+        public string Name { get; set; }
+
+        public virtual ICollection<DbUser> Users { get; set; }
     }
 }
