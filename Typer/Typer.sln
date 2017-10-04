@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typer.Database.Models", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typer.Database.Migrations", "..\AccessLayer\Typer.Database.Migrations\Typer.Database.Migrations.csproj", "{EE2C082E-24D9-4570-B1EF-F2858FB95744}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typer.CoreModels", "..\LogicLayer\Typer.CoreModels\Typer.CoreModels.csproj", "{812BE741-C924-4843-AD48-BAF63CFB2126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typer.Database.Access", "..\AccessLayer\Typer.Database.Access\Typer.Database.Access.csproj", "{A002988F-8D6B-4571-AF38-537D5CF91DA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{EE2C082E-24D9-4570-B1EF-F2858FB95744}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE2C082E-24D9-4570-B1EF-F2858FB95744}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE2C082E-24D9-4570-B1EF-F2858FB95744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{812BE741-C924-4843-AD48-BAF63CFB2126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{812BE741-C924-4843-AD48-BAF63CFB2126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{812BE741-C924-4843-AD48-BAF63CFB2126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{812BE741-C924-4843-AD48-BAF63CFB2126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A002988F-8D6B-4571-AF38-537D5CF91DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A002988F-8D6B-4571-AF38-537D5CF91DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A002988F-8D6B-4571-AF38-537D5CF91DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A002988F-8D6B-4571-AF38-537D5CF91DA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +53,8 @@ Global
 		{2E4FB8D1-1C1A-40FD-8D59-E0FAEDC2AB03} = {CF486DC0-E7BC-416C-BB89-247BE8D857B4}
 		{C17DCCAB-C6BC-45E8-ACDF-1636C5207C1E} = {9548F937-B0A4-40E3-AAAB-1A1BB5FC8072}
 		{EE2C082E-24D9-4570-B1EF-F2858FB95744} = {9548F937-B0A4-40E3-AAAB-1A1BB5FC8072}
+		{812BE741-C924-4843-AD48-BAF63CFB2126} = {575F4495-221B-4D2F-8FB3-95C601E5CFBA}
+		{A002988F-8D6B-4571-AF38-537D5CF91DA6} = {9548F937-B0A4-40E3-AAAB-1A1BB5FC8072}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {101FBEB7-3AD2-429C-9659-1D73E2795E65}
