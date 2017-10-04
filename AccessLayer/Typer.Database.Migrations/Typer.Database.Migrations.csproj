@@ -55,6 +55,10 @@
     <Compile Include="Migrations\201710031947173_addUser_USerRoles.Designer.cs">
       <DependentUpon>201710031947173_addUser_USerRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710041740512_AddSeason_GameWeek_Match.cs" />
+    <Compile Include="Migrations\201710041740512_AddSeason_GameWeek_Match.Designer.cs">
+      <DependentUpon>201710041740512_AddSeason_GameWeek_Match.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TyperContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710031947173_addUser_USerRoles.resx">
       <DependentUpon>201710031947173_addUser_USerRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041740512_AddSeason_GameWeek_Match.resx">
+      <DependentUpon>201710041740512_AddSeason_GameWeek_Match.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

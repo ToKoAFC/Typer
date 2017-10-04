@@ -47,7 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DbGameWeek.cs" />
+    <Compile Include="Models\DbMatch.cs" />
     <Compile Include="Models\DbTeam.cs" />
+    <Compile Include="Models\DbSeason.cs" />
     <Compile Include="Models\DbUser.cs" />
     <Compile Include="Models\DbUserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

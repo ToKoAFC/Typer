@@ -7,6 +7,9 @@ namespace Typer.Database.Migrations
     {
         public DbSet<DbTeam> DbTeams { get; set; }
         public DbSet<DbUserRole> DbUserRoles { get; set; }
+        public DbSet<DbSeason> DbSeasons { get; set; }
+        public DbSet<DbGameWeek> DbGameWeeks { get; set; }
+        public DbSet<DbMatch> DbMatchs { get; set; }
         public DbSet<DbUser> DbUsers { get; set; }
     }
 }
