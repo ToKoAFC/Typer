@@ -1,5 +1,0 @@
-C:\Projects\Typer\LogicLayer\Typer.CoreModels\bin\Debug\Typer.CoreModels.dll
-C:\Projects\Typer\LogicLayer\Typer.CoreModels\bin\Debug\Typer.CoreModels.pdb
-C:\Projects\Typer\LogicLayer\Typer.CoreModels\obj\Debug\Typer.CoreModels.csproj.CoreCompileInputs.cache
-C:\Projects\Typer\LogicLayer\Typer.CoreModels\obj\Debug\Typer.CoreModels.dll
-C:\Projects\Typer\LogicLayer\Typer.CoreModels\obj\Debug\Typer.CoreModels.pdb
