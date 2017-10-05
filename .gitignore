@@ -5,3 +5,4 @@ packages
 /Typer/.vs/Typer/v15/.suo
 /Typer/.vs/Typer/v15/sqlite3/storage.ide
 /AccessLayer/Typer.Database.Access/obj
+/Presentation/Typer.Web/ConnectionStrings.config
