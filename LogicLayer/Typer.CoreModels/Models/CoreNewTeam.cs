@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Typer.CoreModels.Models
 {
-    public class CoreTeam
+    public class CoreNewTeam
     {
-        public int TeamId { get; set; }
+        public CoreNewTeam(string teamName)
+        {
+            TeamName = teamName;
+        }
         public string TeamName { get; set; }
     }
 }

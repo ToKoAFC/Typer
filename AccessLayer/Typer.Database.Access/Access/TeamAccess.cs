@@ -12,16 +12,15 @@ namespace Typer.Database.Access.Access
     public class TeamAccess
     {
         private TyperContext _context;
-        public TeamAccess(TyperContext context)
+        public TeamAccess()
         {
-            _context = context;
+            _context = new TyperContext();
         }
 
-        public void AddTeam(CoreTeam coreTeam)
+        public void AddTeam(CoreNewTeam coreTeam)
         {
             var dbTeam = new DbTeam
             {
-                TeamId = coreTeam.TeamId,
                 TeamName = coreTeam.TeamName
             };
             _context.DbTeams.Add(dbTeam);

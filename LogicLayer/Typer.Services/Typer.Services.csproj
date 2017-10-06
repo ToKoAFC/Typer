@@ -40,7 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminTeam\AdminTeamService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AccessLayer\Typer.Database.Access\Typer.Database.Access.csproj">
+      <Project>{A002988F-8D6B-4571-AF38-537D5CF91DA6}</Project>
+      <Name>Typer.Database.Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Presentation\Typer.ViewModels\Typer.ViewModels.csproj">
+      <Project>{BC2005F6-91BA-4FB8-9BB4-F17627905437}</Project>
+      <Name>Typer.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Typer.CoreModels\Typer.CoreModels.csproj">
+      <Project>{812BE741-C924-4843-AD48-BAF63CFB2126}</Project>
+      <Name>Typer.CoreModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

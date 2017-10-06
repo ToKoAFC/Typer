@@ -11,5 +11,11 @@ namespace Typer.Database.Migrations
         public DbSet<DbGameWeek> DbGameWeeks { get; set; }
         public DbSet<DbMatch> DbMatchs { get; set; }
         public DbSet<DbUser> DbUsers { get; set; }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+        }
     }
 }
