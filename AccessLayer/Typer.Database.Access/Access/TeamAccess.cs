@@ -24,7 +24,14 @@ namespace Typer.Database.Access.Access
                 TeamName = coreTeam.TeamName
             };
             _context.DbTeams.Add(dbTeam);
-            _context.SaveChanges();
+            _context.SaveChanges();            
+        }
+
+        public CoreTeamNames SelectTeamNames()
+        {
+            var TeamNames = new CoreTeamNames();
+            TeamNames.TeamName = _context.DbTeams.Select(x => x.TeamName).ToList();
+            return TeamNames;
         }
     }
 }

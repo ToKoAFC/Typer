@@ -20,6 +20,13 @@ namespace Typer.Web.Controllers
             return View();
         }
 
+        public ActionResult ShowTeams()
+        {
+            VMShowTeams vmTeamNames = new VMShowTeams();
+            vmTeamNames = _adminTeamService.ShowTeams();
+            return View(vmTeamNames);
+        }
+              
         [HttpPost]
         public ActionResult AddNewTeam(VMAddNewTeam model)
         {

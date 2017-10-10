@@ -25,5 +25,13 @@ namespace Typer.Services.AdminTeam
             var coreModel = new CoreNewTeam(team.TeamName);
             _teamAccess.AddTeam(coreModel);
         }
+
+        public VMShowTeams ShowTeams()
+        {
+            CoreTeamNames coreNewTeam = _teamAccess.SelectTeamNames();
+            var vmShowTeams = new VMShowTeams();
+            vmShowTeams.TeamNames = coreNewTeam.TeamName;
+            return vmShowTeams;
+        }
     }
 }
