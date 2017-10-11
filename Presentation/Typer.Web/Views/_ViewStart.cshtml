@@ -1,3 +1,22 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<string> userControllers = new List<string>()
+    {
+        "Home"
+    };
+    List<string> adminControllers = new List<string>()
+    {
+        "Admin"
+    };
+
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+    string cLayout = "";
+    if (adminControllers.Contains(controller))
+    {
+        cLayout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else
+    {
+        cLayout = "~/Views/Shared/_Layout.cshtml";
+    }
+    Layout = cLayout;
 }

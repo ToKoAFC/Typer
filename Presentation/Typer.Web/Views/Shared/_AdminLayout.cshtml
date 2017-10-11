@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typer</title>
+    <script src="/scripts/jquery-3.2.1.min.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top col-md-12">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("TYPER", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sidemenu col-md-2">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <span class="glyphicon glyphicon-th">
+                        </span>Panel administracyjny
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <span class="glyphicon glyphicon-refresh"></span>@Html.ActionLink("Rozgrywki", "Index", "AdminGames")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="glyphicon glyphicon-flash"></span>@Html.ActionLink("Zespoły", "Index", "AdminTeams")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="glyphicon glyphicon-file"></span>COS
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="glyphicon glyphicon-comment text-success"></span>COS
+                                <span class="badge">TODO</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-9">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
