@@ -1,17 +1,23 @@
-﻿@model Typer.ViewModels.AdminTeam.VMAddNewTeam
+﻿@model Typer.ViewModels.AdminTeam.VMAdminTeamIndex
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Dodaj zespół</h2>
-<div class="col-md-6">
-    @using (Html.BeginForm("AddNewTeam", "AdminTeam", FormMethod.Post))
-    {
-
-        @Html.EditorFor(x => x.TeamName)
-        <button type="submit">Zapisz</button>
-    }
-
+<div class="row page-header">
+    <div class="col-md-11">
+        <h4 class="headline-title">Zarządzaj zespołami</h4>
+    </div>
+    <div class="col-md-1">
+        @Html.ActionLink("Dodaj zespół", "AddNewTeam", "AdminTeam", null, new { @class = "btn btn-default" })
+    </div>
 </div>
-<div class="col-md-6">
+<div class="panel panel-default">
+    <div class="panel-body">
+        @foreach (var team in Model.Teams)
+        {
+            <div class="row">
+                <p>@team.TeamName</p>
+            </div>
+        }
+    </div>
 </div>

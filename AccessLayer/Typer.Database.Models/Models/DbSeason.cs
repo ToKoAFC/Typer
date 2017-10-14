@@ -12,7 +12,7 @@ namespace Typer.Database.Models
     {
         public DbSeason()
         {
-            GameWeeks = new HashSet<DbGameWeek>();
+            Matchweeks = new HashSet<DbMatchweek>();
         }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SeasonId { get; set; }
@@ -23,6 +23,6 @@ namespace Typer.Database.Models
         [Range(0, 4)]
         public int EndYear { get; set; }
 
-        public virtual ICollection<DbGameWeek> GameWeeks { get; set; }
+        public virtual ICollection<DbMatchweek> Matchweeks { get; set; }
     }
 }

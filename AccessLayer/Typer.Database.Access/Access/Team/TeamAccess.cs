@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Typer.CoreModels.Models;
 using Typer.Database.Migrations;
 using Typer.Database.Models;
 
-namespace Typer.Database.Access.Access
+namespace Typer.Database.Access
 {
     public class TeamAccess
     {
@@ -24,14 +21,12 @@ namespace Typer.Database.Access.Access
                 TeamName = coreTeam.TeamName
             };
             _context.DbTeams.Add(dbTeam);
-            _context.SaveChanges();            
+            _context.SaveChanges();
         }
 
-        public CoreTeamNames SelectTeamNames()
+        public List<CoreTeam> GetTeams()
         {
-            var TeamNames = new CoreTeamNames();
-            TeamNames.TeamName = _context.DbTeams.Select(x => x.TeamName).ToList();
-            return TeamNames;
+            return _context.DbTeams.Select(x => new CoreTeam { TeamId = x.TeamId, TeamName = x.TeamName }).ToList();
         }
     }
 }

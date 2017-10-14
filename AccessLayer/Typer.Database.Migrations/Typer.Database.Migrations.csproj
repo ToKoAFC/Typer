@@ -47,17 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201710031855266_add_team.cs" />
-    <Compile Include="Migrations\201710031855266_add_team.Designer.cs">
-      <DependentUpon>201710031855266_add_team.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710031947173_addUser_USerRoles.cs" />
-    <Compile Include="Migrations\201710031947173_addUser_USerRoles.Designer.cs">
-      <DependentUpon>201710031947173_addUser_USerRoles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710041740512_AddSeason_GameWeek_Match.cs" />
-    <Compile Include="Migrations\201710041740512_AddSeason_GameWeek_Match.Designer.cs">
-      <DependentUpon>201710041740512_AddSeason_GameWeek_Match.cs</DependentUpon>
+    <Compile Include="Migrations\201710141222021_Init.cs" />
+    <Compile Include="Migrations\201710141222021_Init.Designer.cs">
+      <DependentUpon>201710141222021_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TyperContext.cs" />
@@ -74,14 +66,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710031855266_add_team.resx">
-      <DependentUpon>201710031855266_add_team.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710031947173_addUser_USerRoles.resx">
-      <DependentUpon>201710031947173_addUser_USerRoles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710041740512_AddSeason_GameWeek_Match.resx">
-      <DependentUpon>201710041740512_AddSeason_GameWeek_Match.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710141222021_Init.resx">
+      <DependentUpon>201710141222021_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

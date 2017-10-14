@@ -8,14 +8,16 @@ using System.Threading.Tasks;
 
 namespace Typer.Database.Models
 {
-    public class DbGameWeek
+    public class DbMatchweek
     {
-        public DbGameWeek()
+        public DbMatchweek()
         {
             Matches = new HashSet<DbMatch>();
         }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int MatchWeekId { get; set; }
+        public int MatchweekId { get; set; }
+
+        public string Name { get; set; }
 
         public int SeasonId { get; set; }
 

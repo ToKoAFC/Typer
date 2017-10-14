@@ -17,22 +17,20 @@ namespace Typer.Web.Controllers
         }
         public ActionResult Index()
         {
+            var model = _adminTeamService.GetVMIndex();
+            return View(model);
+        }
+
+        public ActionResult AddNewTeam()
+        {
             return View();
         }
 
-        public ActionResult ShowTeams()
-        {
-            VMShowTeams vmTeamNames = new VMShowTeams();
-            vmTeamNames = _adminTeamService.ShowTeams();
-            return View(vmTeamNames);
-        }
-              
         [HttpPost]
-        public ActionResult AddNewTeam(VMAddNewTeam model)
+        public ActionResult AddNewTeam(VMAdminTeamAddNewTeam model)
         {
             _adminTeamService.AddNewTeam(model);
-            return Redirect(Request.UrlReferrer.ToString());
+            return RedirectToAction("Index");
         }
-
     }
 }

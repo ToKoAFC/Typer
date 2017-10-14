@@ -1,0 +1,14 @@
+﻿@model Typer.ViewModels.AdminTeam.VMAdminTeamAddNewTeam
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Dodaj zespół</h2>
+<div class="col-md-6">
+    @using (Html.BeginForm("AddNewTeam", "AdminTeam", FormMethod.Post))
+    {
+        @Html.EditorFor(x => x.TeamName)
+        <button type="submit">Zapisz</button>
+    }
+
+</div>

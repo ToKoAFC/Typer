@@ -40,9 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminTeam\VMAddNewTeam.cs" />
-    <Compile Include="AdminTeam\VMShowTeams.cs" />
+    <Compile Include="AdminMatchweek\VMAdminMatchweekIndexMatchweek.cs" />
+    <Compile Include="AdminMatchweek\VMAdminMatchweekIndex.cs" />
+    <Compile Include="AdminTeam\VMAdminTeamIndex.cs" />
+    <Compile Include="AdminTeam\VMAdminTeamIndexTeam.cs" />
+    <Compile Include="AdminTeam\VMAdminTeamAddNewTeam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,37 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Typer.CoreModels.Models;
-using Typer.Database.Access.Access;
+using Typer.Database.Access;
 using Typer.ViewModels.AdminTeam;
 
 namespace Typer.Services.AdminTeam
 {
     public class AdminTeamService
     {
-        private TeamAccess _teamAccess;
+        private TeamAccess _adminTeamAccess;
         public AdminTeamService()
         {
-            _teamAccess = new TeamAccess();
+            _adminTeamAccess = new TeamAccess();
         }
-        public void AddNewTeam(VMAddNewTeam team)
+
+        public VMAdminTeamIndex GetVMIndex()
+        {
+            var coreTeams = _adminTeamAccess.GetTeams();
+            var vmTeams = coreTeams.Select(t => new VMAdminTeamIndexTeam
+            {
+                TeamId = t.TeamId,
+                TeamName = t.TeamName
+            }).ToList();
+            var model = new VMAdminTeamIndex
+            {
+                Teams = vmTeams
+            };
+            return model;
+        }
+
+        public void AddNewTeam(VMAdminTeamAddNewTeam team)
         {
             if (string.IsNullOrWhiteSpace(team.TeamName))
             {
                 return;
             }
             var coreModel = new CoreNewTeam(team.TeamName);
-            _teamAccess.AddTeam(coreModel);
+            _adminTeamAccess.AddTeam(coreModel);
         }
-
-        public VMShowTeams ShowTeams()
-        {
-            CoreTeamNames coreNewTeam = _teamAccess.SelectTeamNames();
-            var vmShowTeams = new VMShowTeams();
-            vmShowTeams.TeamNames = coreNewTeam.TeamName;
-            return vmShowTeams;
-        }
+        
     }
 }

@@ -40,8 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\CoreNewTeam.cs" />
-    <Compile Include="Models\CoreTeamNames.cs" />
+    <Compile Include="Models\Matchweek\CoreMatchweek.cs" />
+    <Compile Include="Models\Team\CoreNewTeam.cs" />
+    <Compile Include="Models\Team\CoreTeam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

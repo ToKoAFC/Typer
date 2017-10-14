@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Typer.ViewModels.AdminTeam
 {
-    public class VMShowTeams
+    public class VMAdminTeamAddNewTeam
     {
-        public List<string> TeamNames { get; set; }
+        public string TeamName { get; set; }
     }
 }

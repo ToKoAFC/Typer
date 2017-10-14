@@ -17,12 +17,12 @@ namespace Typer.Database.Models
 
         public int AwayTeamId { get; set; }
 
-        public int MatchWeekId { get; set; }
+        public int MatchweekId { get; set; }
 
 
 
-        [ForeignKey("MatchWeekId")]
-        public virtual DbGameWeek MatchWeek { get; set; }
+        [ForeignKey("MatchweekId")]
+        public virtual DbMatchweek Matchweek { get; set; }
 
         [ForeignKey("HomeTeamId")]
         public virtual DbTeam HomeTeam { get; set; }

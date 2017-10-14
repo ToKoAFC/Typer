@@ -47,7 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Access\TeamAccess.cs" />
+    <Compile Include="Access\Matchweek\AdminMatchweekAccess.cs" />
+    <Compile Include="Access\Team\TeamAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

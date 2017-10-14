@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Typer.ViewModels.AdminTeam
+namespace Typer.CoreModels.Models
 {
-    public class VMAddNewTeam
+    public class CoreTeam
     {
+        public int TeamId { get; set; }
         public string TeamName { get; set; }
+
     }
 }

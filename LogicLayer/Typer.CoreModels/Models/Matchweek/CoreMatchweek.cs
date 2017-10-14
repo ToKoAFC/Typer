@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Typer.CoreModels.Models
 {
-    public class CoreTeamNames
+    public class CoreMatchweek
     {
-        public List<string> TeamName { get; set; }
+        public int MatchweekId { get; set; }
+        public string Name { get; set; }
     }
 }
