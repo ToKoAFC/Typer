@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Matchweek\CoreMatchweek.cs" />
+    <Compile Include="Models\Matchweek\CoreNewMatchweek.cs" />
+    <Compile Include="Models\Season\CoreNewSeason.cs" />
+    <Compile Include="Models\Season\CoreSeason.cs" />
     <Compile Include="Models\Team\CoreNewTeam.cs" />
     <Compile Include="Models\Team\CoreTeam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

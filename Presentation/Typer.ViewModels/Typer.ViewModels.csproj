@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminMatchweek\VMAdminMatchweekAddNewMatchweek.cs" />
     <Compile Include="AdminMatchweek\VMAdminMatchweekIndexMatchweek.cs" />
     <Compile Include="AdminMatchweek\VMAdminMatchweekIndex.cs" />
+    <Compile Include="AdminSeason\VMAdminSeasonAddNewSeason.cs" />
+    <Compile Include="AdminSeason\VMAdminSeasonIndex.cs" />
+    <Compile Include="AdminSeason\VMAdminSeasonIndexSeason.cs" />
     <Compile Include="AdminTeam\VMAdminTeamIndex.cs" />
     <Compile Include="AdminTeam\VMAdminTeamIndexTeam.cs" />
     <Compile Include="AdminTeam\VMAdminTeamAddNewTeam.cs" />

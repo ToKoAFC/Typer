@@ -1,0 +1,11 @@
+﻿@model Typer.ViewModels.AdminSeason.VMAdminSeasonAddNewSeason
+
+
+<h2>Dodaj sezon</h2>
+<div class="col-md-6">
+    @using (Html.BeginForm("AddNewSeason", "AdminSeason", FormMethod.Post))
+    {
+        @Html.EditorFor(x => x)
+        <button type="submit">Zapisz</button>
+    }
+</div>

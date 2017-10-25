@@ -1,1 +1,23 @@
-﻿Tu cza robić
+﻿@model Typer.ViewModels.AdminMatchweek.VMAdminMatchweekIndex
+    @{ 
+        ViewBag.Title = "Index";
+    }
+
+<div class="row page-header">
+    <div class="col-md-11">
+        <h4 class="headline-title">Zarządzaj kolejkami</h4>
+    </div>
+    <div class="col-md-1">
+        @Html.ActionLink("Dodaj kolejkę", "AddNewMatchweek", "AdminMatchweek", null, new { @class = "btn btn-default" })
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        @foreach (var matchweek in Model.Matchweeks)
+        {
+            <div class="row">
+                <p>@matchweek.MatchweekName</p>
+            </div>
+        }
+    </div>
+</div>

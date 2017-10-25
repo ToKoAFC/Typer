@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Typer.CoreModels.Models.Matchweek;
 using Typer.Database.Access;
 using Typer.ViewModels.AdminMatchweek;
 using Typer.ViewModels.AdminTeam;
@@ -26,6 +27,16 @@ namespace Typer.Services.AdminTeam
                 Matchweeks = vmMatchweeks
             };
             return model;
+        }
+
+        public void AddNewMatchweek(VMAdminMatchweekAddNewMatchweek matchweek)
+        {
+            if (string.IsNullOrWhiteSpace(matchweek.MatchweekName))
+            {
+                return;
+            }
+            var coreModel = new CoreNewMatchweek(matchweek.MatchweekName);
+            _adminMatchweekAccess.AddMatchweek(coreModel);
         }
     }
 }

@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminMatchweekController.cs" />
+    <Compile Include="Controllers\AdminSeasonController.cs" />
     <Compile Include="Controllers\AdminTeamController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -200,6 +201,9 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\AdminTeam\AddNewTeam.cshtml" />
     <Content Include="Views\AdminMatchweek\Index.cshtml" />
+    <Content Include="Views\AdminMatchweek\AddNewMatchweek.cshtml" />
+    <Content Include="Views\AdminSeason\Index.cshtml" />
+    <Content Include="Views\AdminSeason\AddNewSeason.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

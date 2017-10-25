@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Typer.CoreModels.Models;
+using Typer.CoreModels.Models.Matchweek;
 using Typer.Database.Migrations;
+using Typer.Database.Models;
 
 namespace Typer.Database.Access
 {
@@ -21,6 +23,16 @@ namespace Typer.Database.Access
                 MatchweekId = x.MatchweekId,
                 Name = x.Name
             }).ToList();
+        }
+
+        public void AddMatchweek(CoreNewMatchweek coreMatchweek)
+        {
+            var dbMatchweek = new DbMatchweek
+            {
+                Name = coreMatchweek.MatchweekName
+            };
+            _context.DbMatchweeks.Add(dbMatchweek);
+            _context.SaveChanges();
         }
     }
 }

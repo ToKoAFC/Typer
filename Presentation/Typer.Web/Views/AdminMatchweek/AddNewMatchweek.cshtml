@@ -1,0 +1,10 @@
+﻿@model Typer.ViewModels.AdminMatchweek.VMAdminMatchweekAddNewMatchweek
+
+<h2>Dodaj kolejkę</h2>
+<div class="col-md-6">
+    @using (Html.BeginForm("AddNewMatchweek", "AdminMatchweek", FormMethod.Post))
+    {
+        @Html.EditorFor(x => x.MatchweekName)
+        <button  type="submit">Zapisz</button>
+    }
+</div>

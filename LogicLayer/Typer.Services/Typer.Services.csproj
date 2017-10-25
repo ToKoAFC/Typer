@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMatchweek\AdminMatchweekService.cs" />
+    <Compile Include="AdminSeason\AdminSeasonService.cs" />
     <Compile Include="AdminTeam\AdminTeamService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
