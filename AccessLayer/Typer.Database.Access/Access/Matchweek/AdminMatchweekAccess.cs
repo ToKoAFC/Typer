@@ -29,7 +29,9 @@ namespace Typer.Database.Access
         {
             var dbMatchweek = new DbMatchweek
             {
-                Name = coreMatchweek.MatchweekName
+                Name = coreMatchweek.MatchweekName,
+                SeasonId = coreMatchweek.SeasonId
+                
             };
             _context.DbMatchweeks.Add(dbMatchweek);
             _context.SaveChanges();

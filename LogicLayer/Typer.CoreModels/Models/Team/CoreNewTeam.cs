@@ -8,10 +8,6 @@ namespace Typer.CoreModels.Models
 {
     public class CoreNewTeam
     {
-        public CoreNewTeam(string teamName)
-        {
-            TeamName = teamName;
-        }
         public string TeamName { get; set; }
     }
 }

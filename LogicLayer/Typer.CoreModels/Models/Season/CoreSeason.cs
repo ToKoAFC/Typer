@@ -11,6 +11,5 @@ namespace Typer.CoreModels.Models.Season
         public int SeasonId { get; set; }
         public int StartYear { get; set; }
         public int EndYear { get; set; }
-
     }
 }

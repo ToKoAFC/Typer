@@ -42,12 +42,19 @@
   <ItemGroup>
     <Compile Include="Models\Matchweek\CoreMatchweek.cs" />
     <Compile Include="Models\Matchweek\CoreNewMatchweek.cs" />
+    <Compile Include="Models\Match\CoreMatch.cs" />
+    <Compile Include="Models\Match\CoreNewMatch.cs" />
     <Compile Include="Models\Season\CoreNewSeason.cs" />
     <Compile Include="Models\Season\CoreSeason.cs" />
     <Compile Include="Models\Team\CoreNewTeam.cs" />
     <Compile Include="Models\Team\CoreTeam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Presentation\Typer.ViewModels\Typer.ViewModels.csproj">
+      <Project>{bc2005f6-91ba-4fb8-9bb4-f17627905437}</Project>
+      <Name>Typer.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

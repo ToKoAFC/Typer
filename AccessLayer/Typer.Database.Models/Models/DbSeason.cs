@@ -16,13 +16,8 @@ namespace Typer.Database.Models
         }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SeasonId { get; set; }
-
-        [Range(0, 4)]
-        public int StartYear { get; set; }
-
-        [Range(0, 4)]
-        public int EndYear { get; set; }
-
+        public int YearStart { get; set; }
+        public int YearEnd { get; set; }
         public virtual ICollection<DbMatchweek> Matchweeks { get; set; }
     }
 }

@@ -19,15 +19,15 @@ namespace Typer.Database.Access.Access.Season
 
         public List<CoreSeason> GetSeasons()
         {
-            return _context.DbSeasons.Select(x => new CoreSeason { SeasonId = x.SeasonId, EndYear = x.EndYear, StartYear = x.StartYear }).ToList();
+            return _context.DbSeasons.Select(x => new CoreSeason { SeasonId = x.SeasonId, EndYear = x.YearEnd, StartYear = x.YearStart }).ToList();
         }
 
         public void AddSeason(CoreNewSeason coreSeason)
         {
             var dbSeason = new DbSeason
             {
-                StartYear = coreSeason.StartYear,
-                EndYear = coreSeason.EndYear
+                YearStart = coreSeason.StartYear,
+                YearEnd = coreSeason.EndYear
             };
             _context.DbSeasons.Add(dbSeason);
             _context.SaveChanges();

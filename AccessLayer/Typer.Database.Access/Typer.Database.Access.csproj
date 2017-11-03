@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Access\Matchweek\AdminMatchweekAccess.cs" />
+    <Compile Include="Access\Match\AdminMatchAccess.cs" />
     <Compile Include="Access\Season\AdminSeasonAcess.cs" />
     <Compile Include="Access\Team\TeamAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

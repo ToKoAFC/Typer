@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using Typer.CoreModels.Models.Season;
 using Typer.Database.Access.Access.Season;
 using Typer.ViewModels.AdminSeason;
@@ -35,8 +36,23 @@ namespace Typer.Services.AdminSeason
 
         public void AddNewSeason(VMAdminSeasonAddNewSeason season)
         {
-            var coreModel = new CoreNewSeason(season.StartYear, season.EndYear);
+            var coreModel = new CoreNewSeason
+            {
+                StartYear = season.StartYear,
+                EndYear = season.EndYear
+            };
             _adminSeasonAcess.AddSeason(coreModel);
+        }
+
+        public SelectList GetSeasonSelectList()
+        {
+            var coreSesons = _adminSeasonAcess.GetSeasons();
+            var selectListItems = coreSesons.Select(x => new SelectListItem
+            {
+                Value = x.SeasonId.ToString(),
+                Text = $"{x.StartYear}/{x.EndYear}"
+            });
+            return new SelectList(selectListItems, "Value", "Text");
         }
     }
 }

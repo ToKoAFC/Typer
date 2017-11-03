@@ -13,7 +13,6 @@ namespace Typer.Database.Models
         public DbMatchweek()
         {
             Matches = new HashSet<DbMatch>();
-            SeasonId = 1;
         }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MatchweekId { get; set; }

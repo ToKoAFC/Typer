@@ -8,10 +8,7 @@ namespace Typer.CoreModels.Models.Matchweek
 {
     public class CoreNewMatchweek
     {
-        public CoreNewMatchweek(string matchweekName)
-        {
-            MatchweekName = matchweekName;
-        }
         public string MatchweekName { get; set; }
+        public int SeasonId { get; set; }
     }
 }

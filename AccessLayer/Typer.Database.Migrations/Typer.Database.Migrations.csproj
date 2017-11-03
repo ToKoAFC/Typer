@@ -51,6 +51,10 @@
     <Compile Include="Migrations\201710141222021_Init.Designer.cs">
       <DependentUpon>201710141222021_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710252017139_Remove_Int_Range.cs" />
+    <Compile Include="Migrations\201710252017139_Remove_Int_Range.Designer.cs">
+      <DependentUpon>201710252017139_Remove_Int_Range.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TyperContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +72,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710141222021_Init.resx">
       <DependentUpon>201710141222021_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710252017139_Remove_Int_Range.resx">
+      <DependentUpon>201710252017139_Remove_Int_Range.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

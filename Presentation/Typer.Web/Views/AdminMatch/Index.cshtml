@@ -1,0 +1,24 @@
+﻿@model Typer.ViewModels.AdminMatch.VMAdminMatchIndex
+
+@{ 
+    ViewBag.Title = "Index";
+}
+
+<div class="row page-header">
+    <div class="col-md-11">
+        <h4 class="headline-title">Zarządzaj meczami</h4>
+    </div>
+    <div class="col-md-1">
+        @Html.ActionLink("Dodaj mecz", "Create", "AdminMatch", null, new { @class = "btn btn-default" })
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        @foreach (var match in Model.Matches)
+        {
+            <div class="row">
+                <p>@($"{match.HomeTeamName} - {match.AwayTeamName}")</p>
+            </div>
+        }
+    </div>
+</div>

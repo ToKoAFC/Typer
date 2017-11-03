@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Web.Mvc;
 using Typer.CoreModels.Models;
 using Typer.Database.Access;
 using Typer.ViewModels.AdminTeam;
@@ -34,9 +35,22 @@ namespace Typer.Services.AdminTeam
             {
                 return;
             }
-            var coreModel = new CoreNewTeam(team.TeamName);
+            var coreModel = new CoreNewTeam
+            {
+                TeamName = team.TeamName
+            };
             _adminTeamAccess.AddTeam(coreModel);
         }
-        
+
+        public SelectList GetTeamsSelectList()
+        {
+            var coreTeams = _adminTeamAccess.GetTeams();
+            var selectListItems = coreTeams.Select(x => new SelectListItem
+            {
+                Value = x.TeamId.ToString(),
+                Text = x.TeamName
+            });
+            return new SelectList(selectListItems, "Value", "Text");
+        }
     }
 }

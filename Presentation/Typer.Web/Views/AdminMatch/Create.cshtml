@@ -1,0 +1,16 @@
+﻿@model Typer.ViewModels.AdminMatch.VMAdminMatchCreateMatch
+
+
+<h2>Dodaj mecz</h2>
+
+<div class="col-md-6">
+    @using (Html.BeginForm("Create", "AdminMatch", FormMethod.Post))
+    {
+        @Html.DropDownListFor(x => x.SeasonId, Model.Seasons)
+        @Html.DropDownListFor(x => x.MatchweekId, Model.Matchweeks)
+        @Html.DropDownListFor(x => x.HomeTeamId, Model.Teams)
+        @Html.DropDownListFor(x => x.AwayTeamId, Model.Teams)
+        <button type="submit">Zapisz</button>
+    }
+</div>
+
