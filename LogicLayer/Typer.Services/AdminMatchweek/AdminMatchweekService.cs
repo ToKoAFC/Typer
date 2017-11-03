@@ -46,9 +46,9 @@ namespace Typer.Services.AdminTeam
             _adminMatchweekAccess.AddMatchweek(coreModel);
         }
 
-        public SelectList GetMatchweekSelectList()
+        public SelectList GetMatchweekSelectList(int seasonId)
         {
-            var coreMatchweeks = _adminMatchweekAccess.GetMatchweeks();
+            var coreMatchweeks = _adminMatchweekAccess.GetMatchweeks(seasonId);
             var selectListItems = coreMatchweeks.Select(x => new SelectListItem
             {
                 Value = x.MatchweekId.ToString(),

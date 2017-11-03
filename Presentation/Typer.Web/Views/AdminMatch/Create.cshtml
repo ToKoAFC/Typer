@@ -6,11 +6,37 @@
 <div class="col-md-6">
     @using (Html.BeginForm("Create", "AdminMatch", FormMethod.Post))
     {
-        @Html.DropDownListFor(x => x.SeasonId, Model.Seasons)
-        @Html.DropDownListFor(x => x.MatchweekId, Model.Matchweeks)
+        @Html.DropDownListFor(x => x.SeasonId, Model.Seasons, new { @id= "seasonList" })
+        @Html.DropDownListFor(x => x.MatchweekId, Model.Matchweeks, new { @id = "matchweekList" })
         @Html.DropDownListFor(x => x.HomeTeamId, Model.Teams)
         @Html.DropDownListFor(x => x.AwayTeamId, Model.Teams)
         <button type="submit">Zapisz</button>
     }
 </div>
 
+<script>
+    $("#seasonList").change(function (){
+        loadMatchweeks();
+    })
+
+    function loadMatchweeks() {
+        var seasonId = $("#seasonList").val();
+                $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetGameweekList")',
+                dataType: 'json',
+                data: { seasonId: seasonId },
+                success: function (response) {
+
+                    var matchweeks = $("#matchweekList");
+                    matchweeks.empty();
+                    $.each(response, function (index, item) {
+                        var option = $('<option/>');
+                        option.attr({ 'value': item.Value }).text(item.Text);
+                        matchweeks.append(option);
+                    });
+                }
+            })
+    }
+
+</script>

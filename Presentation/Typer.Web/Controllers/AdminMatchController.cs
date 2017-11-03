@@ -34,12 +34,11 @@ namespace Typer.Web.Controllers
         public ActionResult Create()
         {
             var season = _adminSeasonService.GetSeasonSelectList();
-            var matchweeks = _adminMatchweekService.GetMatchweekSelectList();
             var teams = _adminTeamService.GetTeamsSelectList();
             var model = new VMAdminMatchCreateMatch
             {
                 Seasons = season,
-                Matchweeks = matchweeks,
+                Matchweeks = new SelectList(new List<string>()),
                 Teams = teams
             };
             return View(model);
@@ -50,6 +49,13 @@ namespace Typer.Web.Controllers
         {
             _adminMatchService.CreateMatch(model);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public JsonResult GetGameweekList(int seasonId)
+        {
+            var matchweeks = _adminMatchweekService.GetMatchweekSelectList(seasonId);
+            return Json(matchweeks, JsonRequestBehavior.AllowGet);
         }
     }
 }

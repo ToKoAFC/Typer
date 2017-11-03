@@ -15,6 +15,16 @@ namespace Typer.Database.Access
             _context = new TyperContext();
         }
 
+        public List<CoreMatchweek> GetMatchweeks(int seasonId)
+        {
+            return _context.DbMatchweeks.Where(s => s.SeasonId == seasonId).Select(x =>
+            new CoreMatchweek
+            {
+                MatchweekId = x.MatchweekId,
+                Name = x.Name
+            }).ToList();
+        }
+
         public List<CoreMatchweek> GetMatchweeks()
         {
             return _context.DbMatchweeks.Select(x =>
@@ -31,7 +41,7 @@ namespace Typer.Database.Access
             {
                 Name = coreMatchweek.MatchweekName,
                 SeasonId = coreMatchweek.SeasonId
-                
+
             };
             _context.DbMatchweeks.Add(dbMatchweek);
             _context.SaveChanges();
