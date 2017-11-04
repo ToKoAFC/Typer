@@ -163,7 +163,11 @@
     <Compile Include="Controllers\AdminSeasonController.cs" />
     <Compile Include="Controllers\AdminTeamController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\StatisticController.cs" />
+    <Compile Include="Controllers\TyperController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,6 +228,10 @@
     <Content Include="Views\AdminSeason\AddNewSeason.cshtml" />
     <Content Include="Views\AdminMatch\Index.cshtml" />
     <Content Include="Views\AdminMatch\Create.cshtml" />
+    <Content Include="Views\Typer\Index.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Statistic\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
