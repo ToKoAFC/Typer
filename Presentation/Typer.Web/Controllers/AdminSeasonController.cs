@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Typer.Services.AdminSeason;
 using Typer.ViewModels.AdminSeason;
 
@@ -10,11 +6,7 @@ namespace Typer.Web.Controllers
 {
     public class AdminSeasonController : Controller
     {
-        private AdminSeasonService _adminSeasonService;
-        public AdminSeasonController()
-        {
-            _adminSeasonService = new AdminSeasonService();
-        }
+        public AdminSeasonService _adminSeasonService { get; set; }
 
         public ActionResult Index()
         {

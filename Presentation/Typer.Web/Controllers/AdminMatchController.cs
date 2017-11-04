@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Typer.Services.AdminMatch;
 using Typer.Services.AdminSeason;
@@ -12,19 +9,11 @@ namespace Typer.Web.Controllers
 {
     public class AdminMatchController : Controller
     {
-        private AdminMatchService _adminMatchService;
-        private AdminSeasonService _adminSeasonService;
-        private AdminMatchweekService _adminMatchweekService;
-        private AdminTeamService _adminTeamService;
-
-        public AdminMatchController()
-        {
-            _adminMatchService = new AdminMatchService();
-            _adminSeasonService = new AdminSeasonService();
-            _adminMatchweekService = new AdminMatchweekService();
-            _adminTeamService = new AdminTeamService();
-        }
-
+        public AdminMatchService _adminMatchService { get; set; }
+        public AdminSeasonService _adminSeasonService { get; set; }
+        public AdminMatchweekService _adminMatchweekService { get; set; }
+        public AdminTeamService _adminTeamService { get; set; }
+        
         public ActionResult Index()
         {
             var model = _adminMatchService.GetAdminMatchIndex();

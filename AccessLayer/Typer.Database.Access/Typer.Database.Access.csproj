@@ -59,6 +59,7 @@
     <Compile Include="Access\Season\AdminSeasonAcess.cs" />
     <Compile Include="Access\Team\TeamAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LogicLayer\Typer.CoreModels\Typer.CoreModels.csproj">

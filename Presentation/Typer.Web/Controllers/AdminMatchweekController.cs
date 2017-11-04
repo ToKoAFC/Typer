@@ -7,14 +7,8 @@ namespace Typer.Web.Controllers
 {
     public class AdminMatchweekController : Controller
     {
-        private AdminMatchweekService _adminMatchweekService;
-        private AdminSeasonService _adminSeasonService;
-
-        public AdminMatchweekController()
-        {
-            _adminMatchweekService = new AdminMatchweekService();
-            _adminSeasonService = new AdminSeasonService();
-        }
+        public AdminSeasonService _adminSeasonService { get; set; }
+        public AdminMatchweekService _adminMatchweekService { get; set; }
 
         public ActionResult Index()
         {

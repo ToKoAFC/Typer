@@ -73,6 +73,7 @@
     <Compile Include="AdminSeason\AdminSeasonService.cs" />
     <Compile Include="AdminTeam\AdminTeamService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AccessLayer\Typer.Database.Access\Typer.Database.Access.csproj">
