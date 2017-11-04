@@ -8,7 +8,7 @@
         <h4 class="headline-title">Zarządzaj zespołami</h4>
     </div>
     <div class="col-md-1">
-        @Html.ActionLink("Dodaj zespół", "AddNewTeam", "AdminTeam", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Dodaj zespół", "AddNewTeam", "AdminTeam", null, new { @class = "btn btn-success" })
     </div>
 </div>
 <div class="panel panel-default">
@@ -16,7 +16,7 @@
         @foreach (var team in Model.Teams)
         {
             <div class="row">
-                <p>@team.TeamName</p>
+                <a class="btn btn-default" href="@Url.Action("Details", "AdminTeam", new { teamId = team.TeamId })">@team.TeamName</a>
             </div>
         }
     </div>
