@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Typer.Database.Models;
+using Typer.Database.Models.Models;
 
 namespace Typer.Database.Migrations
 {
@@ -12,6 +13,7 @@ namespace Typer.Database.Migrations
         public DbSet<DbMatchweek> DbMatchweeks { get; set; }
         public DbSet<DbMatch> DbMatchs { get; set; }
         public DbSet<DbUser> DbUsers { get; set; }
+        public DbSet<DbMatchScore> DbScores { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -61,6 +61,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminMatchScore\VMAdminMatchScoreCreateMatchScore.cs" />
+    <Compile Include="AdminMatchScore\VMAdminMatchScoreIndex.cs" />
+    <Compile Include="AdminMatchScore\VMAdminMatchScoreIndexScore.cs" />
     <Compile Include="AdminMatchweek\VMAdminMatchweekCreateMatchweek.cs" />
     <Compile Include="AdminMatchweek\VMAdminMatchweekIndexMatchweek.cs" />
     <Compile Include="AdminMatchweek\VMAdminMatchweekIndex.cs" />
