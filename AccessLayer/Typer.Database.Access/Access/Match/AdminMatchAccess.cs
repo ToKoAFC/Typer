@@ -35,7 +35,8 @@ namespace Typer.Database.Access.Access.Match
             {
                 MatchweekId = coreMatch.MatchweekId,
                 HomeTeamId = coreMatch.HomeTeamId,
-                AwayTeamId = coreMatch.AwayTeamId
+                AwayTeamId = coreMatch.AwayTeamId,
+                MatchDate = coreMatch.MatchDate
             };
             _context.DbMatchs.Add(dbMatch);
             _context.SaveChanges();

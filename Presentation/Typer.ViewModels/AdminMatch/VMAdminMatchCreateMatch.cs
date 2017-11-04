@@ -16,5 +16,6 @@ namespace Typer.ViewModels.AdminMatch
         public int AwayTeamId { get; set; }
         public int MatchweekId { get; set; }
         public int SeasonId { get; set; }
+        public DateTime MatchDate { get; set; }
     }
 }

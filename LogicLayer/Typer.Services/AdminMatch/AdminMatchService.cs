@@ -43,7 +43,8 @@ namespace Typer.Services.AdminMatch
                 HomeTeamId = vmMatch.HomeTeamId,
                 AwayTeamId = vmMatch.AwayTeamId,
                 MatchweekId = vmMatch.MatchweekId,
-                SeasonId = vmMatch.SeasonId
+                SeasonId = vmMatch.SeasonId,
+                MatchDate = vmMatch.MatchDate
             };
             _adminMatchAccess.CreateMatch(coreModel);
         }

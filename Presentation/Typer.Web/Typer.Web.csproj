@@ -176,6 +176,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\date-picker\datepicker.css" />
+    <Content Include="Content\date-picker\datepicker.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -188,6 +190,10 @@
     <Content Include="ConnectionStrings.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.2.1-vsdoc.js" />
+    <Content Include="Scripts\date-picker\datepicker.common.js" />
+    <Content Include="Scripts\date-picker\datepicker.esm.js" />
+    <Content Include="Scripts\date-picker\datepicker.js" />
+    <Content Include="Scripts\date-picker\datepicker.min.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

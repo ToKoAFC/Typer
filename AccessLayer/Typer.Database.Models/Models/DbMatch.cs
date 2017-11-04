@@ -19,7 +19,7 @@ namespace Typer.Database.Models
 
         public int MatchweekId { get; set; }
 
-
+        public DateTime MatchDate { get; set; }
 
         [ForeignKey("MatchweekId")]
         public virtual DbMatchweek Matchweek { get; set; }

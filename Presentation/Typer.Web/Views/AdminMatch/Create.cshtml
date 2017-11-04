@@ -6,10 +6,21 @@
 <div class="col-md-6">
     @using (Html.BeginForm("Create", "AdminMatch", FormMethod.Post))
     {
-        @Html.DropDownListFor(x => x.SeasonId, Model.Seasons, new { @id= "seasonList" })
-        @Html.DropDownListFor(x => x.MatchweekId, Model.Matchweeks, new { @id = "matchweekList" })
-        @Html.DropDownListFor(x => x.HomeTeamId, Model.Teams)
-        @Html.DropDownListFor(x => x.AwayTeamId, Model.Teams)
+        <div class="form-group row">
+            @Html.DropDownListFor(x => x.SeasonId, Model.Seasons, new { @id = "seasonList" })
+        </div>
+        <div class="form-group row">
+            @Html.DropDownListFor(x => x.MatchweekId, Model.Matchweeks, new { @id = "matchweekList" })
+        </div>
+        <div class="form-group row">
+            @Html.DropDownListFor(x => x.HomeTeamId, Model.Teams)
+        </div>
+        <div class="form-group row">
+            @Html.DropDownListFor(x => x.AwayTeamId, Model.Teams)
+        </div>
+        <div class="form-group row">
+            <input type="text" class="form-control" name="MatchDate" id="MatchDate" data-toggle="datepicker">
+        </div>
         <button type="submit">Zapisz</button>
     }
 </div>
@@ -19,8 +30,16 @@
         loadMatchweeks();
     })
 
-    $(document).ready(function () {
-        loadMatchweeks();
+    $(function () {
+        $('[data-toggle="datepicker"]').datepicker({
+            autoHide: true,
+            autoPick: true,
+            date: @DateTime.Now.ToBinary(),
+            format: 'yyyy-mm-dd'
+        });
+    });
+    $(document).ready(function () {        
+        loadMatchweeks();        
     })
 
     function loadMatchweeks() {
