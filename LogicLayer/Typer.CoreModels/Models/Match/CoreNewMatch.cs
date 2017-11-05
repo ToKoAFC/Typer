@@ -13,5 +13,6 @@ namespace Typer.CoreModels.Models.Match
         public int AwayTeamId { get; set; }
         public int MatchweekId { get; set; }
         public int SeasonId { get; set; }
+        public DateTime MatchDate { get; set; }
     }
 }

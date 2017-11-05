@@ -28,6 +28,18 @@ namespace Typer.Database.Access.Access.Match
                 HomeTeamName = x.HomeTeam.TeamName
             }).ToList();
         }
+        public List<CoreMatch> GetMatches(int matchweekId)
+        {
+            var matches = _context.DbMatchs.Where(x => x.MatchweekId == matchweekId).Select(x => new CoreMatch
+            {
+                AwayTeamId = x.AwayTeamId,
+                HomeTeamId = x.HomeTeamId,
+                MatchweekId = x.MatchweekId,
+                AwayTeamName = x.AwayTeam.TeamName,
+                HomeTeamName = x.HomeTeam.TeamName
+            }).ToList();
+            return matches;
+        }
 
         public void CreateMatch(CoreNewMatch coreMatch)
         {
@@ -35,7 +47,8 @@ namespace Typer.Database.Access.Access.Match
             {
                 MatchweekId = coreMatch.MatchweekId,
                 HomeTeamId = coreMatch.HomeTeamId,
-                AwayTeamId = coreMatch.AwayTeamId
+                AwayTeamId = coreMatch.AwayTeamId,
+                MatchDate = coreMatch.MatchDate
             };
             _context.DbMatchs.Add(dbMatch);
             _context.SaveChanges();

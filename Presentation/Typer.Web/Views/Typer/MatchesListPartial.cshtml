@@ -1,0 +1,6 @@
+﻿@model Typer.ViewModels.Typer.VMTyperIndex
+
+@foreach(var team in Model.Matches)
+{
+    <div class="row">@team.HomeTeamName - @team.AwayTeamName</div>
+}
