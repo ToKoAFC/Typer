@@ -40,10 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\MatchScore\CoreNewMatchScore.cs" />
     <Compile Include="Models\Matchweek\CoreMatchweek.cs" />
     <Compile Include="Models\Matchweek\CoreNewMatchweek.cs" />
     <Compile Include="Models\Match\CoreMatch.cs" />
     <Compile Include="Models\Match\CoreNewMatch.cs" />
+    <Compile Include="Models\MatchScore\CoreMatchScore.cs" />
     <Compile Include="Models\Season\CoreNewSeason.cs" />
     <Compile Include="Models\Season\CoreSeason.cs" />
     <Compile Include="Models\Team\CoreNewTeam.cs" />

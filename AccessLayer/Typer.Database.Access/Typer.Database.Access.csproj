@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Access\MatchScore\AdminMatchScoreAccess.cs" />
     <Compile Include="Access\Matchweek\AdminMatchweekAccess.cs" />
     <Compile Include="Access\Match\AdminMatchAccess.cs" />
     <Compile Include="Access\Season\AdminSeasonAcess.cs" />

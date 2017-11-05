@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminMatchScore\AdminMatchScoreService.cs" />
     <Compile Include="AdminMatchweek\AdminMatchweekService.cs" />
     <Compile Include="AdminMatch\AdminMatchService.cs" />
     <Compile Include="AdminSeason\AdminSeasonService.cs" />

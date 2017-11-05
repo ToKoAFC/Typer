@@ -186,6 +186,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminMatchController.cs" />
+    <Compile Include="Controllers\AdminMatchScoreController.cs" />
     <Compile Include="Controllers\AdminMatchweekController.cs" />
     <Compile Include="Controllers\AdminSeasonController.cs" />
     <Compile Include="Controllers\AdminTeamController.cs" />
@@ -266,6 +267,8 @@
     <Content Include="Views\Statistic\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Typer\MatchesListPartial.cshtml" />
+    <Content Include="Views\AdminMatchScore\Index.cshtml" />
+    <Content Include="Views\AdminMatchScore\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

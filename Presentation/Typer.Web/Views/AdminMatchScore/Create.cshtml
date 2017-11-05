@@ -1,0 +1,25 @@
+﻿@model Typer.ViewModels.AdminMatchScore.VMAdminMatchScoreCreateMatchScore
+
+<h2>Dodaj wynik</h2>
+
+@foreach (var match in Model.Matches.Matches)
+{
+    @(Model.MatchId = match.MatchId)
+    <div class="row">
+        <div class="col-md-2">
+            <p>@match.HomeTeamName</p>
+        </div>
+        <div class="col-md-2">
+            @using (Html.BeginForm("Create", "AdminMatchScore", FormMethod.Post))
+            {
+                @Html.EditorFor(x => x.HomeTeamGoals)
+                @Html.EditorFor(x => x.AwayTeamGoals)
+                <button type="submit">Zapisz</button>
+            }
+        </div>
+        <div class="col-md-2">
+            <p>@match.AwayTeamName</p>
+        </div>
+    </div>
+    
+}
