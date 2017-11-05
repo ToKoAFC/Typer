@@ -1,7 +1,63 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@model Typer.ViewModels.Typer.VMTyperIndex
 
-<h2>Index</h2>
+
+
+    @Html.DropDownListFor(x => x.SeasonId, Model.Seasons, new {@id = "seasonList" })
+    @Html.DropDownListFor(x => x.MatchweekId, Model.Matchweeks, new {@id = "matchweekList" }) <br /><br />
+     <div id="matchesList">
+
+     </div>
+
+
+
+<script>
+    $(document).ready(function () {
+        GetMatchweekList();
+        GetMatches();      
+    })
+
+    $("#seasonList").change(function () {
+        GetMatchweekList();    
+    })
+
+    $("#matchweekList").change(function () {
+        GetMatches();
+    })
+
+    function GetMatchweekList() {
+        var seasonId = $("#seasonList").val();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetMatchweekList")',
+            dataType: 'json',
+            data: { seasonId: seasonId },
+            success: function (response) {
+                var matchweeks = $("#matchweekList");
+                matchweeks.empty();
+                $.each(response, function (index, item) {
+                    var option = $('<option/>');
+                    option.attr({ 'value': item.Value }).text(item.Text);
+                    matchweeks.append(option);
+                });
+            }
+        })
+    }
+
+    function GetMatches()
+    {     
+        $('#matchweekList option[value=1]').attr('selected', 'selected');
+
+        var matchweekId = $("#matchweekList").val();       
+         $.ajax({
+            async: false,
+            url: '@Url.Action("GetMatches")',
+            data: { matchweekId: matchweekId },
+            success: function (response) {
+                $("#matchesList").html(response);
+            }
+         })
+    }
+
+
+</script>
 
