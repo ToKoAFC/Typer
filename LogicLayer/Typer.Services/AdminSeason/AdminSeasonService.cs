@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Typer.CoreModels.Models.Season;
 using Typer.Database.Access.Access.Season;
-using Typer.ViewModels.AdminSeason;
+using Typer.ViewModels.Common;
+using Typer.ViewModels.Views.AdminSeason;
 
 namespace Typer.Services.AdminSeason
 {
@@ -21,7 +18,7 @@ namespace Typer.Services.AdminSeason
         public VMAdminSeasonIndex GetAdminSeasonIndex()
         {
             var coreSesons = _adminSeasonAcess.GetSeasons();
-            var vmSeasons = coreSesons.Select(x => new VMAdminSeasonIndexSeason
+            var vmSeasons = coreSesons.Select(x => new VMSeason
             {
                 SeasonId = x.SeasonId,
                 StartYear = x.StartYear,
@@ -34,7 +31,7 @@ namespace Typer.Services.AdminSeason
             return model;
         }
 
-        public void AddNewSeason(VMAdminSeasonAddNewSeason season)
+        public void AddNewSeason(VMAdminSeasonCreate season)
         {
             var coreModel = new CoreNewSeason
             {

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Typer.CoreModels.Models.Match;
 using Typer.Database.Access.Access.Match;
-using Typer.ViewModels.AdminMatch;
+using Typer.ViewModels.Common;
+using Typer.ViewModels.Views.AdminMatch;
 
 namespace Typer.Services.AdminMatch
 {
@@ -20,7 +17,7 @@ namespace Typer.Services.AdminMatch
         public VMAdminMatchIndex GetAdminMatchIndex()
         {
             var coreMatches = _adminMatchAccess.GetMatches();
-            var vmMatches = coreMatches.Select(x => new VMAdminMatchIndexMatch
+            var vmMatches = coreMatches.Select(x => new VMMatch
             {
                 HomeTeamId = x.HomeTeamId,
                 AwayTeamId = x.AwayTeamId,
@@ -36,7 +33,7 @@ namespace Typer.Services.AdminMatch
             return model;
         }
 
-        public void CreateMatch(VMAdminMatchCreateMatch vmMatch)
+        public void CreateMatch(VMAdminMatchCreate vmMatch)
         {
             var coreModel = new CoreNewMatch
             {

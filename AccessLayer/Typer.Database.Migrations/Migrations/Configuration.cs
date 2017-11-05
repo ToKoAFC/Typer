@@ -15,16 +15,7 @@ namespace Typer.Database.Migrations.Migrations
 
         protected override void Seed(TyperContext context)
         {
-            context.DbUserRoles.Add(new DbUserRole
-            {
-                RoleId = 1,
-                Name = "Administrator"
-            });
-            context.DbUserRoles.Add(new DbUserRole
-            {
-                RoleId = 2,
-                Name = "User"
-            });
+            
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using Typer.Services.AdminTeam;
-using Typer.ViewModels.AdminTeam;
+using Typer.ViewModels.Views.AdminTeam;
 
 namespace Typer.Web.Controllers
 {
@@ -20,7 +20,7 @@ namespace Typer.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddNewTeam(VMAdminTeamAddNewTeam model)
+        public ActionResult AddNewTeam(VMAdminTeamCreate model)
         {
             _adminTeamService.AddNewTeam(model);
             return RedirectToAction("Index");

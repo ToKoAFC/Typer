@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Typer.Database.Access.Access.Match;
-using Typer.ViewModels.Typer;
+using Typer.ViewModels.Common;
 
 namespace Typer.Services.Typer
 {
     public class TyperService
     {
         public AdminMatchAccess _adminMatchAccess { get; set; }
-        public List<VMTyperIndexMatch> GetTyperIndexMatches(int matchweekId)
+        public List<VMMatch> GetTyperIndexMatches(int matchweekId)
         {
-            var matches = _adminMatchAccess.GetMatches(matchweekId).Select(x => new VMTyperIndexMatch
+            var matches = _adminMatchAccess.GetMatches(matchweekId).Select(x => new VMMatch
             {
                 AwayTeamId = x.AwayTeamId,
                 AwayTeamName = x.AwayTeamName,

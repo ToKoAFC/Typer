@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using Typer.Services.AdminSeason;
 using Typer.Services.AdminTeam;
-using Typer.ViewModels.AdminMatchweek;
+using Typer.ViewModels.Views.AdminMatchweek;
 
 namespace Typer.Web.Controllers
 {

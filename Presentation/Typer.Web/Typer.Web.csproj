@@ -181,6 +181,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AppUserStore.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\IoCConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -286,6 +289,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AccessLayer\Typer.Database.Migrations\Typer.Database.Migrations.csproj">
+      <Project>{EE2C082E-24D9-4570-B1EF-F2858FB95744}</Project>
+      <Name>Typer.Database.Migrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AccessLayer\Typer.Database.Models\Typer.Database.Models.csproj">
+      <Project>{C17DCCAB-C6BC-45E8-ACDF-1636C5207C1E}</Project>
+      <Name>Typer.Database.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\LogicLayer\Typer.Services\Typer.Services.csproj">
       <Project>{EF9E1A47-45BC-442F-8806-32CED1D89450}</Project>
       <Name>Typer.Services</Name>

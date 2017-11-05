@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using Typer.Services.AdminMatch;
 using Typer.Services.AdminSeason;
 using Typer.Services.AdminTeam;
-using Typer.ViewModels.AdminMatch;
+using Typer.ViewModels.Views.AdminMatch;
 
 namespace Typer.Web.Controllers
 {
@@ -24,7 +24,7 @@ namespace Typer.Web.Controllers
         {
             var season = _adminSeasonService.GetSeasonSelectList();
             var teams = _adminTeamService.GetTeamsSelectList();
-            var model = new VMAdminMatchCreateMatch
+            var model = new VMAdminMatchCreate
             {
                 Seasons = season,
                 Matchweeks = new SelectList(new List<string>()),
@@ -34,7 +34,7 @@ namespace Typer.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(VMAdminMatchCreateMatch model)
+        public ActionResult Create(VMAdminMatchCreate model)
         {
             _adminMatchService.CreateMatch(model);
             return RedirectToAction("Index");

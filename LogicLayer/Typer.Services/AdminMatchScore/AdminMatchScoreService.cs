@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Typer.CoreModels.Models.MatchScore;
 using Typer.Database.Access.Access.MatchScore;
-using Typer.ViewModels.AdminMatchScore;
+using Typer.ViewModels.Common;
+using Typer.ViewModels.Views.AdminMatchScore;
 
 namespace Typer.Services.AdminMatchScore
 {
@@ -21,7 +18,7 @@ namespace Typer.Services.AdminMatchScore
         public VMAdminMatchScoreIndex GetAdminMatchScoreIndex()
         {
             var coreMatchScores = _adminMatchScoreAccess.GetScores();
-            var vmMatchScores = coreMatchScores.Select(x => new VMAdminMatchScoreIndexScore
+            var vmMatchScores = coreMatchScores.Select(x => new VMMatchScore
             {
                 AwayTeamGoals = x.AwayTeamGoals,
                 HomeTeamGoals = x.HomeTeamGoals,
@@ -38,7 +35,7 @@ namespace Typer.Services.AdminMatchScore
             return model;
         }
 
-        public void AddScoreMatch(VMAdminMatchScoreCreateMatchScore vmMatchScore)
+        public void AddScoreMatch(VMAdminMatchScoreCreate vmMatchScore)
         {
             var coreModel = new CoreNewMatchScore
             {

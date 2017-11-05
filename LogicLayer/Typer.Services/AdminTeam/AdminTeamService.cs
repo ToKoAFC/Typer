@@ -2,7 +2,8 @@
 using System.Web.Mvc;
 using Typer.CoreModels.Models;
 using Typer.Database.Access;
-using Typer.ViewModels.AdminTeam;
+using Typer.ViewModels.Common;
+using Typer.ViewModels.Views.AdminTeam;
 
 namespace Typer.Services.AdminTeam
 {
@@ -17,7 +18,7 @@ namespace Typer.Services.AdminTeam
         public VMAdminTeamIndex GetVMIndex()
         {
             var coreTeams = _adminTeamAccess.GetTeams();
-            var vmTeams = coreTeams.Select(t => new VMAdminTeamIndexTeam
+            var vmTeams = coreTeams.Select(t => new VMATeam
             {
                 TeamId = t.TeamId,
                 TeamName = t.TeamName
@@ -29,7 +30,7 @@ namespace Typer.Services.AdminTeam
             return model;
         }
 
-        public void AddNewTeam(VMAdminTeamAddNewTeam team)
+        public void AddNewTeam(VMAdminTeamCreate team)
         {
             if (string.IsNullOrWhiteSpace(team.TeamName))
             {

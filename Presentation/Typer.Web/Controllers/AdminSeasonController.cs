@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using Typer.Services.AdminSeason;
-using Typer.ViewModels.AdminSeason;
+using Typer.ViewModels.Views.AdminSeason;
 
 namespace Typer.Web.Controllers
 {
@@ -20,7 +20,7 @@ namespace Typer.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddNewSeason(VMAdminSeasonAddNewSeason model)
+        public ActionResult AddNewSeason(VMAdminSeasonCreate model)
         {
             _adminSeasonService.AddNewSeason(model);
             return RedirectToAction("Index");

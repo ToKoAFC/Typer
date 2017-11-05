@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Typer.Services.AdminSeason;
 using Typer.Services.AdminTeam;
 using Typer.Services.Typer;
-using Typer.ViewModels.Typer;
+using Typer.ViewModels.Common;
+using Typer.ViewModels.Views.Typer;
 
 namespace Typer.Web.Controllers
 {
@@ -21,7 +19,7 @@ namespace Typer.Web.Controllers
             var model = new VMTyperIndex()
             {
                 Seasons = seasons,
-                Matches = new List<VMTyperIndexMatch>(),
+                Matches = new List<VMMatch>(),
                 Matchweeks = new SelectList(new List<string>())
             };
             return View(model);

@@ -3,7 +3,8 @@ using System.Web.Mvc;
 using Typer.CoreModels.Models.Matchweek;
 using Typer.Database.Access;
 using Typer.Database.Access.Access.Season;
-using Typer.ViewModels.AdminMatchweek;
+using Typer.ViewModels.Common;
+using Typer.ViewModels.Views.AdminMatchweek;
 
 namespace Typer.Services.AdminTeam
 {
@@ -20,7 +21,7 @@ namespace Typer.Services.AdminTeam
         public VMAdminMatchweekIndex GetAdminMatchweekIndex()
         {
             var coreMatchweeks = _adminMatchweekAccess.GetMatchweeks();
-            var vmMatchweeks = coreMatchweeks.Select(t => new VMAdminMatchweekIndexMatchweek
+            var vmMatchweeks = coreMatchweeks.Select(t => new VMMatchweek
             {
                 MatchweekId = t.MatchweekId,
                 MatchweekName = t.Name

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Typer.Services.AdminMatch;
 using Typer.Services.AdminMatchScore;
-using Typer.ViewModels.AdminMatchScore;
+using Typer.ViewModels.Views.AdminMatchScore;
 
 namespace Typer.Web.Controllers
 {
@@ -27,7 +23,7 @@ namespace Typer.Web.Controllers
 
         public ActionResult Create()
         {
-            var model = new VMAdminMatchScoreCreateMatchScore
+            var model = new VMAdminMatchScoreCreate
             {
                 Matches = _adminMatchService.GetAdminMatchIndex()
             };
@@ -35,7 +31,7 @@ namespace Typer.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(VMAdminMatchScoreCreateMatchScore model)
+        public ActionResult Create(VMAdminMatchScoreCreate model)
         {
             _adminMatchScoreService.AddScoreMatch(model);
             return RedirectToAction("Index");

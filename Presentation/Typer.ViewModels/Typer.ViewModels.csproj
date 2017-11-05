@@ -61,24 +61,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminMatchScore\VMAdminMatchScoreCreateMatchScore.cs" />
-    <Compile Include="AdminMatchScore\VMAdminMatchScoreIndex.cs" />
-    <Compile Include="AdminMatchScore\VMAdminMatchScoreIndexScore.cs" />
-    <Compile Include="AdminMatchweek\VMAdminMatchweekCreateMatchweek.cs" />
-    <Compile Include="AdminMatchweek\VMAdminMatchweekIndexMatchweek.cs" />
-    <Compile Include="AdminMatchweek\VMAdminMatchweekIndex.cs" />
-    <Compile Include="AdminMatch\VMAdminMatchCreateMatch.cs" />
-    <Compile Include="AdminMatch\VMAdminMatchIndex.cs" />
-    <Compile Include="AdminMatch\VMAdminMatchIndexMatch.cs" />
-    <Compile Include="AdminSeason\VMAdminSeasonAddNewSeason.cs" />
-    <Compile Include="AdminSeason\VMAdminSeasonIndex.cs" />
-    <Compile Include="AdminSeason\VMAdminSeasonIndexSeason.cs" />
-    <Compile Include="AdminTeam\VMAdminTeamIndex.cs" />
-    <Compile Include="AdminTeam\VMAdminTeamIndexTeam.cs" />
-    <Compile Include="AdminTeam\VMAdminTeamAddNewTeam.cs" />
+    <Compile Include="Views\AdminMatchScore\VMAdminMatchScoreCreate.cs" />
+    <Compile Include="Views\AdminMatchScore\VMAdminMatchScoreIndex.cs" />
+    <Compile Include="Views\AdminMatchweek\VMAdminMatchweekCreate.cs" />
+    <Compile Include="Views\AdminMatchweek\VMAdminMatchweekIndex.cs" />
+    <Compile Include="Views\AdminMatch\VMAdminMatchCreate.cs" />
+    <Compile Include="Views\AdminMatch\VMAdminMatchIndex.cs" />
+    <Compile Include="Views\AdminSeason\VMAdminSeasonCreate.cs" />
+    <Compile Include="Views\AdminSeason\VMAdminSeasonIndex.cs" />
+    <Compile Include="Views\AdminTeam\VMAdminTeamIndex.cs" />
+    <Compile Include="Views\AdminTeam\VMAdminTeamCreate.cs" />
+    <Compile Include="Common\VMMatchScore.cs" />
+    <Compile Include="Common\VMMatchweek.cs" />
+    <Compile Include="Common\VMTeam.cs" />
+    <Compile Include="Common\VMSeason.cs" />
+    <Compile Include="Common\VMMatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Typer\VMTyperIndex.cs" />
-    <Compile Include="Typer\VMTyperIndexMatch.cs" />
+    <Compile Include="Views\Typer\VMTyperIndex.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
