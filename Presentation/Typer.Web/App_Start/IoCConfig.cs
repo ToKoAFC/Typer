@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using Typer.Database.Models;
-using static Typer.Web.IdentityConfig;
 
 namespace Typer.Web
 {
@@ -23,7 +22,7 @@ namespace Typer.Web
 
             builder.Register(c => HttpContext.Current.GetOwinContext().GetUserManager<UserManager<DbAppUser>>())
               .InstancePerLifetimeScope();
-
+            
             builder.Register(c => HttpContext.Current.GetOwinContext().GetUserManager<ApplicationSignInManager>())
                 .InstancePerLifetimeScope();
 
