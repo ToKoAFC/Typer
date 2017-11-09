@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Typer.Database.Models
 {
-    public class DbAppUser : IdentityUser<string, DbAppUserLogin, DbAppUserRole, DbAppUserClaim>, IUser<string>
+    public class DbAppUser : IdentityUser
     {
         public DbAppUser()
         {

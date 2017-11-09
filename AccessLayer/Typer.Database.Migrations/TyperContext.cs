@@ -6,20 +6,17 @@ using Typer.Database.Models;
 
 namespace Typer.Database.Migrations
 {
-    public class TyperContext : IdentityDbContext<DbAppUser, DbAppRole, string, DbAppUserLogin, DbAppUserRole, DbAppUserClaim>
+    public class TyperContext : IdentityDbContext
     {
         public DbSet<DbTeam> DbTeams { get; set; }
         public DbSet<DbSeason> DbSeasons { get; set; }
         public DbSet<DbMatchweek> DbMatchweeks { get; set; }
         public DbSet<DbMatch> DbMatchs { get; set; }
         public DbSet<DbMatchScore> DbScores { get; set; }
-        public virtual IQueryable<DbAppUser> Users
-        {
-            get { return base.Users; }
-        }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {
+            base.OnModelCreating(builder);
             builder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
 
