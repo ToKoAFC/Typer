@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using Typer.CoreModels.Models.MatchScore;
-using Typer.Database.Access.Access.MatchScore;
+using Typer.Database.Access.MatchScore;
 using Typer.ViewModels.Common;
 using Typer.ViewModels.Views.AdminMatchScore;
 
@@ -8,13 +8,8 @@ namespace Typer.Services.AdminMatchScore
 {
     public class AdminMatchScoreService
     {
-        private AdminMatchScoreAccess _adminMatchScoreAccess;
-
-        public AdminMatchScoreService()
-        {
-            _adminMatchScoreAccess = new AdminMatchScoreAccess();
-        }
-
+        public AdminMatchScoreAccess _adminMatchScoreAccess { get; set; }
+        
         public VMAdminMatchScoreIndex GetAdminMatchScoreIndex()
         {
             var coreMatchScores = _adminMatchScoreAccess.GetScores();
@@ -27,7 +22,7 @@ namespace Typer.Services.AdminMatchScore
                 MatchId = x.MatchId,
                 MatchScoreId = x.MatchScoreId
             }).ToList();
-
+                     
             var model = new VMAdminMatchScoreIndex
             {
                 Scores = vmMatchScores
@@ -35,16 +30,18 @@ namespace Typer.Services.AdminMatchScore
             return model;
         }
 
-        public void AddScoreMatch(VMAdminMatchScoreCreate vmMatchScore)
+       
+        public void AddScoreMatch(VMAdminMatchScoreIndex vmMatchScore)
         {
-            var coreModel = new CoreNewMatchScore
+            foreach (var score in vmMatchScore.Scores)
             {
-                AwayTeamGoals = vmMatchScore.AwayTeamGoals,
-                HomeTeamGoals = vmMatchScore.HomeTeamGoals,
-                MatchId = vmMatchScore.MatchId,
-                MatchScoreId = vmMatchScore.MatchScoreId
-            };
-            _adminMatchScoreAccess.AddMatchScore(coreModel);
+                _adminMatchScoreAccess.AddMatchScore(new CoreNewMatchScore
+                {
+                    AwayTeamGoals = score.AwayTeamGoals,
+                    HomeTeamGoals = score.HomeTeamGoals,
+                    MatchId = score.MatchId,
+                });
+            }
         }
     }
 }

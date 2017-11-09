@@ -10,7 +10,7 @@ using Typer.Database.Models;
 namespace Typer.Database.Access.Access.Match
 {
     public class AdminMatchAccess
-    {
+    {  
         private TyperContext _context;
         public AdminMatchAccess()
         {
@@ -21,6 +21,7 @@ namespace Typer.Database.Access.Access.Match
         {
             return _context.DbMatchs.Select(x => new CoreMatch
             {
+                MatchId = x.MatchId,
                 AwayTeamId = x.AwayTeamId,
                 HomeTeamId = x.HomeTeamId,
                 MatchweekId = x.MatchweekId,
@@ -48,9 +49,10 @@ namespace Typer.Database.Access.Access.Match
                 MatchweekId = coreMatch.MatchweekId,
                 HomeTeamId = coreMatch.HomeTeamId,
                 AwayTeamId = coreMatch.AwayTeamId,
-                MatchDate = coreMatch.MatchDate
+                MatchDate = coreMatch.MatchDate,
+                MatchScore = new DbMatchScore()
             };
-            _context.DbMatchs.Add(dbMatch);
+            _context.DbMatchs.Add(dbMatch);                       
             _context.SaveChanges();
         }
     }

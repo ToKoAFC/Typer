@@ -5,7 +5,7 @@ using Typer.CoreModels.Models.Score;
 using Typer.Database.Migrations;
 using Typer.Database.Models;
 
-namespace Typer.Database.Access.Access.MatchScore
+namespace Typer.Database.Access.MatchScore
 {
     public class AdminMatchScoreAccess
     {
@@ -18,7 +18,7 @@ namespace Typer.Database.Access.Access.MatchScore
 
         public List<CoreMatchScore> GetScores()
         {
-            return _context.DbScores.Select(x => new CoreMatchScore
+            var model = _context.DbScores.Select(x => new CoreMatchScore
             {
                 AwayTeamGoals = x.AwayTeamGoals,
                 HomeTeamGoals = x.HomeTeamGoals,
@@ -27,6 +27,8 @@ namespace Typer.Database.Access.Access.MatchScore
                 AwayTeamName = x.Match.AwayTeam.TeamName,
                 HomeTeamName = x.Match.HomeTeam.TeamName
             }).ToList();
+
+            return model;
         }
 
         public void AddMatchScore(CoreNewMatchScore coreScore)
@@ -35,11 +37,11 @@ namespace Typer.Database.Access.Access.MatchScore
             {
                 AwayTeamGoals = coreScore.AwayTeamGoals,
                 HomeTeamGoals = coreScore.HomeTeamGoals,
-                MatchScoreId = coreScore.MatchScoreId,
                 MatchId = coreScore.MatchId
             };
             _context.DbScores.Add(dbMatchScore);
-            _context.SaveChanges();
+            _context.SaveChanges();            
         }
+        
     }
 }
