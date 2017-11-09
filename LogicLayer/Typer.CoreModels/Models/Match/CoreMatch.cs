@@ -8,6 +8,7 @@ namespace Typer.CoreModels.Models.Match
 {
     public class CoreMatch
     {
+        public int MatchId { get; set; }
         public int MatchweekId { get; set; }
         public int HomeTeamId { get; set; }
         public int AwayTeamId { get; set; }

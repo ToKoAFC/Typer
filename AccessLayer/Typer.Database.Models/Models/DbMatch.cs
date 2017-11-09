@@ -19,6 +19,8 @@ namespace Typer.Database.Models
 
         public int MatchweekId { get; set; }
 
+        public int MatchScoreId { get; set; }
+
         public DateTime MatchDate { get; set; }
 
         [ForeignKey("MatchweekId")]
@@ -29,5 +31,8 @@ namespace Typer.Database.Models
 
         [ForeignKey("AwayTeamId")]
         public virtual DbTeam AwayTeam { get; set; }
+
+        [ForeignKey("MatchScoreId")]
+        public virtual DbMatchScore MatchScore { get; set; }
     }
 }

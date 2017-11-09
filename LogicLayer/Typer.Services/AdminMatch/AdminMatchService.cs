@@ -19,6 +19,7 @@ namespace Typer.Services.AdminMatch
             var coreMatches = _adminMatchAccess.GetMatches();
             var vmMatches = coreMatches.Select(x => new VMMatch
             {
+                MatchId = x.MatchId,
                 HomeTeamId = x.HomeTeamId,
                 AwayTeamId = x.AwayTeamId,
                 MatchweekId = x.MatchweekId,

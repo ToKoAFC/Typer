@@ -7,14 +7,15 @@ namespace Typer.Web.Controllers
 {
     public class AdminMatchScoreController : Controller
     {
-        private AdminMatchScoreService _adminMatchScoreService;
         private AdminMatchService _adminMatchService;
+        private AdminMatchScoreService _adminMatchScoreService;
+
         public AdminMatchScoreController()
         {
             _adminMatchScoreService = new AdminMatchScoreService();
             _adminMatchService = new AdminMatchService();
         }
-
+       
         public ActionResult Index()
         {
             var model = _adminMatchScoreService.GetAdminMatchScoreIndex();
@@ -23,15 +24,12 @@ namespace Typer.Web.Controllers
 
         public ActionResult Create()
         {
-            var model = new VMAdminMatchScoreCreate
-            {
-                Matches = _adminMatchService.GetAdminMatchIndex()
-            };
+            var model = _adminMatchScoreService.GetAdminMatchScoreIndex();
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Create(VMAdminMatchScoreCreate model)
+        public ActionResult Create(VMAdminMatchScoreIndex model)
         {
             _adminMatchScoreService.AddScoreMatch(model);
             return RedirectToAction("Index");
