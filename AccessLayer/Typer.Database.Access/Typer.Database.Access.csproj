@@ -64,7 +64,9 @@
     <Compile Include="Accesses\MatchweekAccess.cs" />
     <Compile Include="Accesses\MatchAccess.cs" />
     <Compile Include="Accesses\SeasonAccess.cs" />
+    <Compile Include="Accesses\MatchPredictionAccess.cs" />
     <Compile Include="Accesses\TeamAccess.cs" />
+    <Compile Include="Interfaces\IMatchPredictionAccess.cs" />
     <Compile Include="Interfaces\IMatchScoreAccess.cs" />
     <Compile Include="Interfaces\IMatchweekAccess.cs" />
     <Compile Include="Interfaces\IMatchAccess.cs" />

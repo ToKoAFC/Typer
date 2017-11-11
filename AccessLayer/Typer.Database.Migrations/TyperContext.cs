@@ -16,6 +16,7 @@ namespace Typer.Database.Migrations
         public DbSet<DbMatchweek> DbMatchweeks { get; set; }
         public DbSet<DbMatch> DbMatchs { get; set; }
         public DbSet<DbMatchScore> DbScores { get; set; }
+        public DbSet<DbMatchPrediction> DbMatchPredictions { get; set; }
         public DbSet<DbAppUser> DbAppUsers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)
