@@ -11,6 +11,11 @@ namespace Typer.Database.Models
     [Table("Matches")]
     public class DbMatch
     {
+        public DbMatch()
+        {
+            MatchPredictions = new HashSet<DbMatchPrediction>();
+        }
+
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MatchId { get; set; }
 
@@ -24,6 +29,8 @@ namespace Typer.Database.Models
 
         public DateTime MatchDate { get; set; }
 
+
+
         [ForeignKey("MatchweekId")]
         public virtual DbMatchweek Matchweek { get; set; }
 
@@ -35,5 +42,7 @@ namespace Typer.Database.Models
 
         [ForeignKey("MatchScoreId")]
         public virtual DbMatchScore MatchScore { get; set; }
+
+        public virtual ICollection<DbMatchPrediction> MatchPredictions { get; set; }
     }
 }
