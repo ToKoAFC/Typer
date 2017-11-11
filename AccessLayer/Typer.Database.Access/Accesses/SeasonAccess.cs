@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Typer.CoreModels.Models.Season;
 using Typer.Database.Migrations;
 using Typer.Database.Models;
 
-namespace Typer.Database.Access.Access.Season
+namespace Typer.Database.Access
 {
-    public class AdminSeasonAcess
+    public class SeasonAccess : ISeasonAccess
     {
         private TyperContext _context;
-        public AdminSeasonAcess()
+        public SeasonAccess()
         {
             _context = new TyperContext();
         }

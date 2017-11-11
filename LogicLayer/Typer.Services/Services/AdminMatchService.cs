@@ -1,22 +1,24 @@
 ﻿using System.Linq;
 using Typer.CoreModels.Models.Match;
-using Typer.Database.Access.Access.Match;
+using Typer.Database.Access;
+using Typer.Services.Interfaces;
 using Typer.ViewModels.Common;
 using Typer.ViewModels.Views.AdminMatch;
 
 namespace Typer.Services.AdminMatch
 {
-    public class AdminMatchService
+    public class AdminMatchService : IAdminMatchService
     {
-        private AdminMatchAccess _adminMatchAccess;
-        public AdminMatchService()
+        private readonly IMatchAccess _matchAccess;
+
+        public AdminMatchService(IMatchAccess matchAccess)
         {
-            _adminMatchAccess = new AdminMatchAccess();
+            _matchAccess = matchAccess;
         }
 
         public VMAdminMatchIndex GetAdminMatchIndex()
         {
-            var coreMatches = _adminMatchAccess.GetMatches();
+            var coreMatches = _matchAccess.GetMatches();
             var vmMatches = coreMatches.Select(x => new VMMatch
             {
                 MatchId = x.MatchId,
@@ -44,9 +46,7 @@ namespace Typer.Services.AdminMatch
                 SeasonId = vmMatch.SeasonId,
                 MatchDate = vmMatch.MatchDate
             };
-            _adminMatchAccess.CreateMatch(coreModel);
-        }
-
-
+            _matchAccess.CreateMatch(coreModel);
+        }        
     }
 }

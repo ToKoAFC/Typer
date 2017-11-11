@@ -19,8 +19,9 @@ namespace Typer.Database.Access
                 .InstancePerLifetimeScope();
 
             builder.RegisterAssemblyTypes(typeof(TeamAccess).Assembly)
-                .Where(t => t.Name.EndsWith("Access") && t.Namespace != null && t.Namespace.StartsWith("Typer.Database.Access"))
-                .PropertiesAutowired();
+                .Where(t => t.Name.EndsWith("Access") && t.Namespace != null && t.Namespace.Equals("Typer.Database.Access"))
+                .AsImplementedInterfaces();
+            
         }
     }
 }

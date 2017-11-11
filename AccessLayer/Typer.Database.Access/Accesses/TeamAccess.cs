@@ -6,7 +6,7 @@ using Typer.Database.Models;
 
 namespace Typer.Database.Access
 {
-    public class TeamAccess
+    public class TeamAccess : ITeamAccess
     {
         private TyperContext _context;
         public TeamAccess()

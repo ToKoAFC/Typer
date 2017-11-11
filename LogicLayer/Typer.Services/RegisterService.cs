@@ -18,7 +18,7 @@ namespace Typer.Services
 
             builder.RegisterAssemblyTypes(typeof(AdminTeamService).Assembly)
                 .Where(t => t.Name.EndsWith("Service") && t.Namespace != null && t.Namespace.StartsWith("Typer.Services"))
-                .PropertiesAutowired();
+                .AsImplementedInterfaces();
         }
     }
 }

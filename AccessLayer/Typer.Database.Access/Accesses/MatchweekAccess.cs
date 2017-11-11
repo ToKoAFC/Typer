@@ -7,10 +7,10 @@ using Typer.Database.Models;
 
 namespace Typer.Database.Access
 {
-    public class AdminMatchweekAccess
+    public class MatchweekAccess : IMatchweekAccess
     {
         private TyperContext _context;
-        public AdminMatchweekAccess()
+        public MatchweekAccess()
         {
             _context = new TyperContext();
         }

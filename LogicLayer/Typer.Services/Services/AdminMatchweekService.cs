@@ -2,25 +2,25 @@
 using System.Web.Mvc;
 using Typer.CoreModels.Models.Matchweek;
 using Typer.Database.Access;
-using Typer.Database.Access.Access.Season;
+using Typer.Services.Interfaces;
 using Typer.ViewModels.Common;
 using Typer.ViewModels.Views.AdminMatchweek;
 
 namespace Typer.Services.AdminTeam
 {
-    public class AdminMatchweekService
+    public class AdminMatchweekService : IAdminMatchweekService
     {
-        private AdminMatchweekAccess _adminMatchweekAccess;
-        private AdminSeasonAcess _adminSeasonAcess;
-        public AdminMatchweekService()
+        private readonly IMatchweekAccess _matchweekAccess;
+        private readonly ISeasonAccess _seasonAccess;
+        public AdminMatchweekService(IMatchweekAccess matchweekAccess, ISeasonAccess seasonAccess)
         {
-            _adminMatchweekAccess = new AdminMatchweekAccess();
-            _adminSeasonAcess = new AdminSeasonAcess();
+            _matchweekAccess = matchweekAccess;
+            _seasonAccess = seasonAccess;
         }
 
         public VMAdminMatchweekIndex GetAdminMatchweekIndex()
         {
-            var coreMatchweeks = _adminMatchweekAccess.GetMatchweeks();
+            var coreMatchweeks = _matchweekAccess.GetMatchweeks();
             var vmMatchweeks = coreMatchweeks.Select(t => new VMMatchweek
             {
                 MatchweekId = t.MatchweekId,
@@ -44,12 +44,12 @@ namespace Typer.Services.AdminTeam
                 MatchweekName = matchweek.MatchweekName,
                 SeasonId = matchweek.SeasonId
             };
-            _adminMatchweekAccess.AddMatchweek(coreModel);
+            _matchweekAccess.AddMatchweek(coreModel);
         }
 
         public SelectList GetMatchweekSelectList(int seasonId)
         {
-            var coreMatchweeks = _adminMatchweekAccess.GetMatchweeks(seasonId);
+            var coreMatchweeks = _matchweekAccess.GetMatchweeks(seasonId);
             var selectListItems = coreMatchweeks.Select(x => new SelectListItem
             {
                 Value = x.MatchweekId.ToString(),

@@ -1,23 +1,24 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using Typer.CoreModels.Models.Season;
-using Typer.Database.Access.Access.Season;
+using Typer.Database.Access;
+using Typer.Services.Interfaces;
 using Typer.ViewModels.Common;
 using Typer.ViewModels.Views.AdminSeason;
 
 namespace Typer.Services.AdminSeason
 {
-    public class AdminSeasonService
+    public class AdminSeasonService : IAdminSeasonService
     {
-        private AdminSeasonAcess _adminSeasonAcess;
-        public AdminSeasonService()
+        private readonly ISeasonAccess _seasonAccess;
+        public AdminSeasonService(ISeasonAccess seasonAccess)
         {
-            _adminSeasonAcess = new AdminSeasonAcess();
+            _seasonAccess = seasonAccess;
         }
 
         public VMAdminSeasonIndex GetAdminSeasonIndex()
         {
-            var coreSesons = _adminSeasonAcess.GetSeasons();
+            var coreSesons = _seasonAccess.GetSeasons();
             var vmSeasons = coreSesons.Select(x => new VMSeason
             {
                 SeasonId = x.SeasonId,
@@ -38,12 +39,12 @@ namespace Typer.Services.AdminSeason
                 StartYear = season.StartYear,
                 EndYear = season.EndYear
             };
-            _adminSeasonAcess.AddSeason(coreModel);
+            _seasonAccess.AddSeason(coreModel);
         }
 
         public SelectList GetSeasonSelectList()
         {
-            var coreSesons = _adminSeasonAcess.GetSeasons();
+            var coreSesons = _seasonAccess.GetSeasons();
             var selectListItems = coreSesons.Select(x => new SelectListItem
             {
                 Value = x.SeasonId.ToString(),

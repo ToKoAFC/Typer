@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Typer.Database.Models
 {
+    [Table("MatchScores")]
     public  class DbMatchScore
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]

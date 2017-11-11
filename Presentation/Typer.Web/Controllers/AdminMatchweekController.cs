@@ -1,14 +1,20 @@
 ﻿using System.Web.Mvc;
-using Typer.Services.AdminSeason;
-using Typer.Services.AdminTeam;
+using Typer.Services.Interfaces;
 using Typer.ViewModels.Views.AdminMatchweek;
 
 namespace Typer.Web.Controllers
 {
     public class AdminMatchweekController : Controller
     {
-        public AdminSeasonService _adminSeasonService { get; set; }
-        public AdminMatchweekService _adminMatchweekService { get; set; }
+        private readonly IAdminSeasonService _adminSeasonService;
+        private readonly IAdminMatchweekService _adminMatchweekService;
+
+        public AdminMatchweekController(IAdminSeasonService adminSeasonService, 
+                                        IAdminMatchweekService adminMatchweekService)
+        {
+            _adminSeasonService = adminSeasonService;
+            _adminMatchweekService = adminMatchweekService;
+        }
 
         public ActionResult Index()
         {

@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Typer.CoreModels.Models.Match;
 using Typer.Database.Migrations;
 using Typer.Database.Models;
 
-namespace Typer.Database.Access.Access.Match
+namespace Typer.Database.Access
 {
-    public class AdminMatchAccess
+    public class MatchAccess : IMatchAccess
     {  
         private TyperContext _context;
-        public AdminMatchAccess()
+        public MatchAccess()
         {
             _context = new TyperContext();
         }

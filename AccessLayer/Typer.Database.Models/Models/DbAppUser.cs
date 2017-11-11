@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Typer.Database.Models
 {
+    [Table("AppUsers")]
     public class DbAppUser : IdentityUser
     {
         public DbAppUser()

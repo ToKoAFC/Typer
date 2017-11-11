@@ -1,12 +1,16 @@
 ﻿using System.Web.Mvc;
-using Typer.Services.AdminSeason;
+using Typer.Services.Interfaces;
 using Typer.ViewModels.Views.AdminSeason;
 
 namespace Typer.Web.Controllers
 {
     public class AdminSeasonController : Controller
     {
-        public AdminSeasonService _adminSeasonService { get; set; }
+        private readonly IAdminSeasonService _adminSeasonService;
+        public AdminSeasonController(IAdminSeasonService adminSeasonService)
+        {
+            _adminSeasonService = adminSeasonService;
+        }
 
         public ActionResult Index()
         {

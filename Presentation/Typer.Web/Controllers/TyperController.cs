@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using Typer.Services.AdminSeason;
-using Typer.Services.AdminTeam;
-using Typer.Services.Typer;
+using Typer.Services.Interfaces;
 using Typer.ViewModels.Common;
 using Typer.ViewModels.Views.Typer;
 
@@ -10,9 +8,19 @@ namespace Typer.Web.Controllers
 {
     public class TyperController : Controller
     {
-        public AdminMatchweekService _adminMatchweekService { get; set; }
-        public AdminSeasonService _adminSeasonService { get; set; }
-        public TyperService _typerService { get; set; }
+        private readonly IAdminMatchweekService _adminMatchweekService;
+        private readonly IAdminSeasonService _adminSeasonService;
+        private readonly ITyperService _typerService;
+
+        public TyperController(IAdminMatchweekService adminMatchweekService, 
+                                IAdminSeasonService adminSeasonService,
+                                ITyperService typerService)
+        {
+            _adminMatchweekService = adminMatchweekService;
+            _adminSeasonService = adminSeasonService;
+            _typerService = typerService;
+        }
+
         public ActionResult Index()
         {
             var seasons = _adminSeasonService.GetSeasonSelectList();

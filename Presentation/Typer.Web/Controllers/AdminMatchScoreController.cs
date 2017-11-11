@@ -1,19 +1,20 @@
 ﻿using System.Web.Mvc;
 using Typer.Services.AdminMatch;
 using Typer.Services.AdminMatchScore;
+using Typer.Services.Interfaces;
 using Typer.ViewModels.Views.AdminMatchScore;
 
 namespace Typer.Web.Controllers
 {
     public class AdminMatchScoreController : Controller
     {
-        private AdminMatchService _adminMatchService;
-        private AdminMatchScoreService _adminMatchScoreService;
+        private readonly IAdminMatchService _adminMatchService;
+        private readonly IAdminMatchScoreService _adminMatchScoreService;
 
-        public AdminMatchScoreController()
+        public AdminMatchScoreController(IAdminMatchService adminMatchService, IAdminMatchScoreService adminMatchScoreService)
         {
-            _adminMatchScoreService = new AdminMatchScoreService();
-            _adminMatchService = new AdminMatchService();
+            _adminMatchService = adminMatchService;
+            _adminMatchScoreService = adminMatchScoreService;
         }
        
         public ActionResult Index()
