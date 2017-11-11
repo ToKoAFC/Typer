@@ -10,7 +10,6 @@ using Typer.Web.AccountModels;
 
 namespace Typer.Web.Controllers
 {
-
     [Authorize]
     public class AccountController : Controller
     {

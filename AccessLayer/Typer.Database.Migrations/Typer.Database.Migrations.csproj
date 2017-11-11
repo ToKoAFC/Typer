@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201711091921223_Init.Designer.cs">
       <DependentUpon>201711091921223_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711111215420_addMatchPrediciton.cs" />
+    <Compile Include="Migrations\201711111215420_addMatchPrediciton.Designer.cs">
+      <DependentUpon>201711111215420_addMatchPrediciton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TyperContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +78,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711091921223_Init.resx">
       <DependentUpon>201711091921223_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111215420_addMatchPrediciton.resx">
+      <DependentUpon>201711111215420_addMatchPrediciton.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

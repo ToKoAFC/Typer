@@ -5,6 +5,7 @@ using Typer.ViewModels.Views.AdminMatch;
 
 namespace Typer.Web.Controllers
 {
+    [Authorize]
     public class AdminMatchController : Controller
     {
         private readonly IAdminMatchService _adminMatchService;

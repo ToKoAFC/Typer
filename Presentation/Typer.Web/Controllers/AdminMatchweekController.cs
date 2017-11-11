@@ -4,6 +4,7 @@ using Typer.ViewModels.Views.AdminMatchweek;
 
 namespace Typer.Web.Controllers
 {
+    [Authorize]
     public class AdminMatchweekController : Controller
     {
         private readonly IAdminSeasonService _adminSeasonService;

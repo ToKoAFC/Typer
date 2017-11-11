@@ -58,6 +58,7 @@
     <Compile Include="Models\DbAppUserRole.cs" />
     <Compile Include="Models\DbAppUserLogin.cs" />
     <Compile Include="Models\DbAppUser.cs" />
+    <Compile Include="Models\DbMatchPrediction.cs" />
     <Compile Include="Models\DbMatchweek.cs" />
     <Compile Include="Models\DbMatch.cs" />
     <Compile Include="Models\DbMatchScore.cs" />

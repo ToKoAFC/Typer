@@ -4,6 +4,7 @@ using Typer.ViewModels.Views.AdminTeam;
 
 namespace Typer.Web.Controllers
 {
+    [Authorize]
     public class AdminTeamController : Controller
     {
         private readonly IAdminTeamService _adminTeamService;
