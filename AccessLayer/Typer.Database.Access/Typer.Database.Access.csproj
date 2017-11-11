@@ -60,11 +60,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Access\MatchScore\AdminMatchScoreAccess.cs" />
-    <Compile Include="Access\Matchweek\AdminMatchweekAccess.cs" />
-    <Compile Include="Access\Match\AdminMatchAccess.cs" />
-    <Compile Include="Access\Season\AdminSeasonAcess.cs" />
-    <Compile Include="Access\Team\TeamAccess.cs" />
+    <Compile Include="Accesses\MatchScoreAccess.cs" />
+    <Compile Include="Accesses\MatchweekAccess.cs" />
+    <Compile Include="Accesses\MatchAccess.cs" />
+    <Compile Include="Accesses\SeasonAccess.cs" />
+    <Compile Include="Accesses\TeamAccess.cs" />
+    <Compile Include="Interfaces\IMatchScoreAccess.cs" />
+    <Compile Include="Interfaces\IMatchweekAccess.cs" />
+    <Compile Include="Interfaces\IMatchAccess.cs" />
+    <Compile Include="Interfaces\ISeasonAccess.cs" />
+    <Compile Include="Interfaces\ITeamAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterAccess.cs" />
   </ItemGroup>
@@ -86,5 +91,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

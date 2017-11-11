@@ -2,22 +2,23 @@
 using System.Web.Mvc;
 using Typer.CoreModels.Models;
 using Typer.Database.Access;
+using Typer.Services.Interfaces;
 using Typer.ViewModels.Common;
 using Typer.ViewModels.Views.AdminTeam;
 
 namespace Typer.Services.AdminTeam
 {
-    public class AdminTeamService
+    public class AdminTeamService : IAdminTeamService
     {
-        private TeamAccess _adminTeamAccess;
-        public AdminTeamService()
+        private readonly ITeamAccess _teamAccess;
+        public AdminTeamService(ITeamAccess teamAccess)
         {
-            _adminTeamAccess = new TeamAccess();
+            _teamAccess = teamAccess;
         }
 
         public VMAdminTeamIndex GetVMIndex()
         {
-            var coreTeams = _adminTeamAccess.GetTeams();
+            var coreTeams = _teamAccess.GetTeams();
             var vmTeams = coreTeams.Select(t => new VMATeam
             {
                 TeamId = t.TeamId,
@@ -40,12 +41,12 @@ namespace Typer.Services.AdminTeam
             {
                 TeamName = team.TeamName
             };
-            _adminTeamAccess.AddTeam(coreModel);
+            _teamAccess.AddTeam(coreModel);
         }
 
         public SelectList GetTeamsSelectList()
         {
-            var coreTeams = _adminTeamAccess.GetTeams();
+            var coreTeams = _teamAccess.GetTeams();
             var selectListItems = coreTeams.Select(x => new SelectListItem
             {
                 Value = x.TeamId.ToString(),

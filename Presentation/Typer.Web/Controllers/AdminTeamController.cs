@@ -1,12 +1,17 @@
 ﻿using System.Web.Mvc;
-using Typer.Services.AdminTeam;
+using Typer.Services.Interfaces;
 using Typer.ViewModels.Views.AdminTeam;
 
 namespace Typer.Web.Controllers
 {
     public class AdminTeamController : Controller
     {
-        public AdminTeamService _adminTeamService { get; set; }
+        private readonly IAdminTeamService _adminTeamService;
+
+        public AdminTeamController(IAdminTeamService adminTeamService)
+        {
+            _adminTeamService = adminTeamService;
+        }
 
         public ActionResult Index()
         {

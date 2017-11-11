@@ -68,14 +68,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminMatchScore\AdminMatchScoreService.cs" />
-    <Compile Include="AdminMatchweek\AdminMatchweekService.cs" />
-    <Compile Include="AdminMatch\AdminMatchService.cs" />
-    <Compile Include="AdminSeason\AdminSeasonService.cs" />
-    <Compile Include="AdminTeam\AdminTeamService.cs" />
+    <Compile Include="Interfaces\IAdminMatchScoreService.cs" />
+    <Compile Include="Interfaces\AdminMatchService.cs" />
+    <Compile Include="Interfaces\IAdminMatchweekService.cs" />
+    <Compile Include="Interfaces\IAdminSeasonService.cs" />
+    <Compile Include="Interfaces\IAdminTeamService.cs" />
+    <Compile Include="Interfaces\ITyperService.cs" />
+    <Compile Include="Services\AdminMatchScoreService.cs" />
+    <Compile Include="Services\AdminMatchweekService.cs" />
+    <Compile Include="Services\AdminMatchService.cs" />
+    <Compile Include="Services\AdminSeasonService.cs" />
+    <Compile Include="Services\AdminTeamService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterService.cs" />
-    <Compile Include="Typer\TyperService.cs" />
+    <Compile Include="Services\TyperService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AccessLayer\Typer.Database.Access\Typer.Database.Access.csproj">

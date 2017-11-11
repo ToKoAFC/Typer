@@ -20,6 +20,7 @@ namespace Typer.Database.Migrations
             builder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
 
+            builder.Entity<DbMatch>().HasOptional(x => x.MatchScore).WithRequired(x => x.Match);
             var user = builder.Entity<DbAppUser>().ToTable("ApplicationUser");
 
             user.HasMany(u => u.Roles).WithRequired().HasForeignKey(ur => ur.UserId);

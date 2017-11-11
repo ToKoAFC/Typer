@@ -5,13 +5,13 @@ using Typer.CoreModels.Models.Score;
 using Typer.Database.Migrations;
 using Typer.Database.Models;
 
-namespace Typer.Database.Access.MatchScore
+namespace Typer.Database.Access
 {
-    public class AdminMatchScoreAccess
+    public class MatchScoreAccess : IMatchScoreAccess
     {
         private TyperContext _context;
 
-        public AdminMatchScoreAccess()
+        public MatchScoreAccess()
         {
             _context = new TyperContext();
         }

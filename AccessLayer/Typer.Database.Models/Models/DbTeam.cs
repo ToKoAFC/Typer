@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Typer.Database.Models
 {
+    [Table("Teams")]
     public class DbTeam
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]

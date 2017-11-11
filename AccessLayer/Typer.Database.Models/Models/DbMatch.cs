@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Typer.Database.Models
 {
+    [Table("Matches")]
     public class DbMatch
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
