@@ -4,7 +4,6 @@ using Typer.CoreModels.Models;
 using Typer.CoreModels.Models.MatchPrediction;
 using Typer.CoreModels.Models.Score;
 using Typer.Database.Migrations;
-using Typer.Database.Models;
 
 namespace Typer.Database.Access
 {
@@ -32,11 +31,6 @@ namespace Typer.Database.Access
                     MatchScoreId = p.MatchScoreId
                 }
             }).ToList();
-        }
-
-        public List<CoreTeam> GetTeams()
-        {
-            return _context.DbTeams.Select(x => new CoreTeam { TeamId = x.TeamId, TeamName = x.TeamName }).ToList();
         }
     }
 }
