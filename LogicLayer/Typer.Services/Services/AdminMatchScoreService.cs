@@ -26,7 +26,7 @@ namespace Typer.Services.AdminMatchScore
                 AwayTeamName = x.AwayTeamName,
                 HomeTeamName = x.HomeTeamName,
                 MatchId = x.MatchId,
-                MatchScoreId = x.MatchScoreId
+                //MatchScoreId = x.MatchScoreId
             }).ToList();
                      
             var model = new VMAdminMatchScoreIndex

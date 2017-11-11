@@ -8,92 +8,6 @@ namespace Typer.Database.Migrations.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Matches",
-                c => new
-                    {
-                        MatchId = c.Int(nullable: false, identity: true),
-                        HomeTeamId = c.Int(nullable: false),
-                        AwayTeamId = c.Int(nullable: false),
-                        MatchweekId = c.Int(nullable: false),
-                        MatchScoreId = c.Int(nullable: false),
-                        MatchDate = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.MatchId)
-                .ForeignKey("dbo.Teams", t => t.AwayTeamId, cascadeDelete: false)
-                .ForeignKey("dbo.Teams", t => t.HomeTeamId, cascadeDelete: false)
-                .ForeignKey("dbo.Matchweeks", t => t.MatchweekId, cascadeDelete: false)
-                .Index(t => t.HomeTeamId)
-                .Index(t => t.AwayTeamId)
-                .Index(t => t.MatchweekId);
-            
-            CreateTable(
-                "dbo.Teams",
-                c => new
-                    {
-                        TeamId = c.Int(nullable: false, identity: true),
-                        TeamName = c.String(),
-                    })
-                .PrimaryKey(t => t.TeamId);
-            
-            CreateTable(
-                "dbo.MatchScores",
-                c => new
-                    {
-                        MatchScoreId = c.Int(nullable: false, identity: true),
-                        HomeTeamGoals = c.Int(nullable: false),
-                        AwayTeamGoals = c.Int(nullable: false),
-                        MatchId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.MatchScoreId)
-                .ForeignKey("dbo.Matches", t => t.MatchScoreId)
-                .Index(t => t.MatchScoreId);
-            
-            CreateTable(
-                "dbo.Matchweeks",
-                c => new
-                    {
-                        MatchweekId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        SeasonId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.MatchweekId)
-                .ForeignKey("dbo.Seasons", t => t.SeasonId, cascadeDelete: true)
-                .Index(t => t.SeasonId);
-            
-            CreateTable(
-                "dbo.Seasons",
-                c => new
-                    {
-                        SeasonId = c.Int(nullable: false, identity: true),
-                        YearStart = c.Int(nullable: false),
-                        YearEnd = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.SeasonId);
-            
-            CreateTable(
-                "dbo.AspNetRoles",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
-                    })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
-            
-            CreateTable(
-                "dbo.AspNetUserRoles",
-                c => new
-                    {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId)
-                .Index(t => t.RoleId);
-            
-            CreateTable(
                 "dbo.AspNetUsers",
                 c => new
                     {
@@ -137,6 +51,107 @@ namespace Typer.Database.Migrations.Migrations
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.AspNetUserRoles",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.MatchPredictions",
+                c => new
+                    {
+                        MatchPredictionId = c.Int(nullable: false, identity: true),
+                        MatchId = c.Int(nullable: false),
+                        MatchScoreId = c.Int(nullable: false),
+                        UserId = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.MatchPredictionId)
+                .ForeignKey("dbo.Matches", t => t.MatchId, cascadeDelete: true)
+                .ForeignKey("dbo.MatchScores", t => t.MatchScoreId, cascadeDelete: true)
+                .ForeignKey("dbo.ApplicationUser", t => t.UserId)
+                .Index(t => t.MatchId)
+                .Index(t => t.MatchScoreId)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.Matches",
+                c => new
+                    {
+                        MatchId = c.Int(nullable: false, identity: true),
+                        HomeTeamId = c.Int(nullable: false),
+                        AwayTeamId = c.Int(nullable: false),
+                        MatchweekId = c.Int(nullable: false),
+                        MatchDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.MatchId)
+                .ForeignKey("dbo.Teams", t => t.AwayTeamId, cascadeDelete: false)
+                .ForeignKey("dbo.Teams", t => t.HomeTeamId, cascadeDelete: false)
+                .ForeignKey("dbo.Matchweeks", t => t.MatchweekId, cascadeDelete: false)
+                .Index(t => t.HomeTeamId)
+                .Index(t => t.AwayTeamId)
+                .Index(t => t.MatchweekId);
+            
+            CreateTable(
+                "dbo.Teams",
+                c => new
+                    {
+                        TeamId = c.Int(nullable: false, identity: true),
+                        TeamName = c.String(),
+                    })
+                .PrimaryKey(t => t.TeamId);
+            
+            CreateTable(
+                "dbo.MatchScores",
+                c => new
+                    {
+                        MatchId = c.Int(nullable: false),
+                        HomeTeamGoals = c.Int(),
+                        AwayTeamGoals = c.Int(),
+                    })
+                .PrimaryKey(t => t.MatchId)
+                .ForeignKey("dbo.Matches", t => t.MatchId)
+                .Index(t => t.MatchId);
+            
+            CreateTable(
+                "dbo.Matchweeks",
+                c => new
+                    {
+                        MatchweekId = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        SeasonId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.MatchweekId)
+                .ForeignKey("dbo.Seasons", t => t.SeasonId, cascadeDelete: true)
+                .Index(t => t.SeasonId);
+            
+            CreateTable(
+                "dbo.Seasons",
+                c => new
+                    {
+                        SeasonId = c.Int(nullable: false, identity: true),
+                        YearStart = c.Int(nullable: false),
+                        YearEnd = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.SeasonId);
+            
+            CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
             CreateTable(
                 "dbo.AppUserRoles",
@@ -199,39 +214,46 @@ namespace Typer.Database.Migrations.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.MatchPredictions", "UserId", "dbo.ApplicationUser");
+            DropForeignKey("dbo.MatchPredictions", "MatchScoreId", "dbo.MatchScores");
             DropForeignKey("dbo.Matchweeks", "SeasonId", "dbo.Seasons");
             DropForeignKey("dbo.Matches", "MatchweekId", "dbo.Matchweeks");
-            DropForeignKey("dbo.MatchScores", "MatchScoreId", "dbo.Matches");
+            DropForeignKey("dbo.MatchScores", "MatchId", "dbo.Matches");
+            DropForeignKey("dbo.MatchPredictions", "MatchId", "dbo.Matches");
             DropForeignKey("dbo.Matches", "HomeTeamId", "dbo.Teams");
             DropForeignKey("dbo.Matches", "AwayTeamId", "dbo.Teams");
             DropIndex("dbo.ApplicationUser", new[] { "Id" });
             DropIndex("dbo.AppUserRoles", new[] { "RoleId" });
-            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
-            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
-            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Matchweeks", new[] { "SeasonId" });
-            DropIndex("dbo.MatchScores", new[] { "MatchScoreId" });
+            DropIndex("dbo.MatchScores", new[] { "MatchId" });
             DropIndex("dbo.Matches", new[] { "MatchweekId" });
             DropIndex("dbo.Matches", new[] { "AwayTeamId" });
             DropIndex("dbo.Matches", new[] { "HomeTeamId" });
+            DropIndex("dbo.MatchPredictions", new[] { "UserId" });
+            DropIndex("dbo.MatchPredictions", new[] { "MatchScoreId" });
+            DropIndex("dbo.MatchPredictions", new[] { "MatchId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.AppUserClaims");
             DropTable("dbo.AppUserLogins");
             DropTable("dbo.AppRoles");
             DropTable("dbo.AppUserRoles");
-            DropTable("dbo.AspNetUserLogins");
-            DropTable("dbo.AspNetUserClaims");
-            DropTable("dbo.AspNetUsers");
-            DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Seasons");
             DropTable("dbo.Matchweeks");
             DropTable("dbo.MatchScores");
             DropTable("dbo.Teams");
             DropTable("dbo.Matches");
+            DropTable("dbo.MatchPredictions");
+            DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.AspNetUserClaims");
+            DropTable("dbo.AspNetUsers");
         }
     }
 }

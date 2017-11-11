@@ -24,8 +24,15 @@ namespace Typer.Database.Migrations
             base.OnModelCreating(builder);
             builder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+            //builder.Entity<DbMatch>()
+            //            .HasOptional(o => o.MatchScore)
+            //            .WithOptionalPrincipal()
+            //            .Map(o => o.MapKey("MatchScoreId"));
 
-            builder.Entity<DbMatch>().HasOptional(x => x.MatchScore).WithRequired(x => x.Match);
+            //builder.Entity<DbMatchScore>()
+            //            .HasOptional(o => o.Match)
+            //            .WithOptionalPrincipal()
+            //            .Map(o => o.MapKey("MatchId"));
             var user = builder.Entity<DbAppUser>().ToTable("ApplicationUser");
 
             user.HasMany(u => u.Roles).WithRequired().HasForeignKey(ur => ur.UserId);

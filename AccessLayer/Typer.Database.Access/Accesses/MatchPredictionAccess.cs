@@ -23,12 +23,12 @@ namespace Typer.Database.Access
                 UserId = p.UserId,
                 MatchScore = new CoreMatchScore
                 {
-                    AwayTeamGoals = p.MatchScore != null ? p.MatchScore.AwayTeamGoals : 0, //todo change 0 to null
-                    AwayTeamName = p.Match != null ? p.Match.AwayTeam.TeamName : string.Empty,
-                    HomeTeamGoals = p.MatchScore != null ? p.MatchScore.HomeTeamGoals : 0, //todo change 0 to null
-                    HomeTeamName = p.Match != null ? p.Match.HomeTeam.TeamName : string.Empty,
-                    MatchId = p.MatchId,
-                    MatchScoreId = p.MatchScoreId
+                    //AwayTeamGoals = p.MatchScore != null ? p.MatchScore.AwayTeamGoals : 0, //todo change 0 to null
+                    //AwayTeamName = p.Match != null ? p.Match.AwayTeam.TeamName : string.Empty,
+                    //HomeTeamGoals = p.MatchScore != null ? p.MatchScore.HomeTeamGoals : 0, //todo change 0 to null
+                    //HomeTeamName = p.Match != null ? p.Match.HomeTeam.TeamName : string.Empty,
+                    //MatchId = p.MatchId,
+                    //MatchScoreId = p.MatchScoreId
                 }
             }).ToList();
         }

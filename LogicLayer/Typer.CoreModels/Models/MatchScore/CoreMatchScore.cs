@@ -10,9 +10,9 @@ namespace Typer.CoreModels.Models.Score
     {
         public int MatchScoreId { get; set; }
         public string HomeTeamName { get; set; }
-        public int HomeTeamGoals { get; set; }
+        public int? HomeTeamGoals { get; set; }
         public string AwayTeamName { get; set; }
-        public int AwayTeamGoals { get; set; }
+        public int? AwayTeamGoals { get; set; }
         public int MatchId { get; set; }
     }
 }
