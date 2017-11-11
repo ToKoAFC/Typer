@@ -4,6 +4,7 @@ using Typer.ViewModels.Views.AdminSeason;
 
 namespace Typer.Web.Controllers
 {
+    [Authorize]
     public class AdminSeasonController : Controller
     {
         private readonly IAdminSeasonService _adminSeasonService;

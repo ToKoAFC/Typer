@@ -8,11 +8,15 @@ namespace Typer.Database.Migrations
 {
     public class TyperContext : IdentityDbContext
     {
+        public TyperContext() : base("TyperContext") 
+        {
+        }
         public DbSet<DbTeam> DbTeams { get; set; }
         public DbSet<DbSeason> DbSeasons { get; set; }
         public DbSet<DbMatchweek> DbMatchweeks { get; set; }
         public DbSet<DbMatch> DbMatchs { get; set; }
         public DbSet<DbMatchScore> DbScores { get; set; }
+        public DbSet<DbAppUser> DbAppUsers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {

@@ -1,11 +1,10 @@
 ﻿using System.Web.Mvc;
-using Typer.Services.AdminMatch;
-using Typer.Services.AdminMatchScore;
 using Typer.Services.Interfaces;
 using Typer.ViewModels.Views.AdminMatchScore;
 
 namespace Typer.Web.Controllers
 {
+    [Authorize]
     public class AdminMatchScoreController : Controller
     {
         private readonly IAdminMatchService _adminMatchService;

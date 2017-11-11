@@ -6,6 +6,7 @@ using Typer.ViewModels.Views.Typer;
 
 namespace Typer.Web.Controllers
 {
+    [Authorize]
     public class TyperController : Controller
     {
         private readonly IAdminMatchweekService _adminMatchweekService;
