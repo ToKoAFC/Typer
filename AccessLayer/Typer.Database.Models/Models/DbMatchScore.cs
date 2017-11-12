@@ -13,8 +13,7 @@ namespace Typer.Database.Models
 
         [Key]
         public int MatchId { get; set; }
-
-        [Required]
+        
         [ForeignKey("MatchId")]       
         public virtual DbMatch Match { get; set; }
     }

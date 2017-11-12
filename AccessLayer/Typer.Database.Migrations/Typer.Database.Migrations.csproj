@@ -53,13 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201711111647162_Init.cs" />
-    <Compile Include="Migrations\201711111647162_Init.Designer.cs">
-      <DependentUpon>201711111647162_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711111714399_DbMatchPredictionFIx.cs" />
-    <Compile Include="Migrations\201711111714399_DbMatchPredictionFIx.Designer.cs">
-      <DependentUpon>201711111714399_DbMatchPredictionFIx.cs</DependentUpon>
+    <Compile Include="Migrations\201711121000504_init.cs" />
+    <Compile Include="Migrations\201711121000504_init.Designer.cs">
+      <DependentUpon>201711121000504_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TyperContext.cs" />
@@ -76,11 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711111647162_Init.resx">
-      <DependentUpon>201711111647162_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711111714399_DbMatchPredictionFIx.resx">
-      <DependentUpon>201711111714399_DbMatchPredictionFIx.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711121000504_init.resx">
+      <DependentUpon>201711121000504_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
