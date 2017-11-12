@@ -7,13 +7,13 @@ namespace Typer.Database.Migrations.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addMatchPrediciton : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addMatchPrediciton));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711111215420_addMatchPrediciton"; }
+            get { return "201711121000504_init"; }
         }
         
         string IMigrationMetadata.Source

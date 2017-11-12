@@ -16,7 +16,18 @@
         @foreach (var matchScore in Model.Scores)
         {
             <div class="row">
-                <p>@($"{matchScore.HomeTeamName} {matchScore.HomeTeamGoals} : {matchScore.AwayTeamGoals} {matchScore.AwayTeamName}")</p>
+                <div class="col-md-2">
+                    @matchScore.HomeTeamName
+                </div>
+                <div class="col-md-2">
+                    @matchScore.HomeTeamGoals
+                </div>
+                <div class="col-md-2">
+                    @matchScore.AwayTeamGoals
+                </div>
+                <div class="col-md-2">
+                    @matchScore.AwayTeamName
+                </div>
             </div>
         }
     </div>

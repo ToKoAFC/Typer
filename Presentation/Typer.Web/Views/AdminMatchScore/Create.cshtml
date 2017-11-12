@@ -5,29 +5,24 @@
 @using (Html.BeginForm("Create", "AdminMatchScore", FormMethod.Post))
 {
 
-    @*foreach (var match in Model.Scores)
-    {
-        <div class="col-md-2">
-            @Html.EditorFor(x => match.AwayTeamGoals)
-        </div>
-    }*@
     for (int i = 0; i < Model.Scores.Count; i++)
     {
-            @Html.HiddenFor(x => x.Scores[i].MatchId)
-            <div class="row">
-                <div class="col-md-2">
-                    <p>@Model.Scores[i].HomeTeamName</p>
-                </div>
-                <div class="col-md-2">                
-                        @Html.EditorFor(x => x.Scores[i].HomeTeamGoals)
-                </div>
-                <div class="col-md-2">
-                        @Html.EditorFor(x => x.Scores[i].AwayTeamGoals)
-                </div>
-                <div class="col-md-2">
-                    <p>@Model.Scores[i].AwayTeamName</p>
-                </div>
-            </div>            
-         }
-        <button type="submit">Zapisz</button>
+        @Html.HiddenFor(x => x.Scores[i].MatchId)
+        <div class="row">
+            <div class="col-md-2">
+                <p>@Model.Scores[i].HomeTeamName</p>
+            </div>
+            <div class="col-md-2">
+                @Html.EditorFor(x => x.Scores[i].HomeTeamGoals)
+            </div>
+            <div class="col-md-2">
+                @Html.EditorFor(x => x.Scores[i].AwayTeamGoals)
+            </div>
+            <div class="col-md-2">
+                <p>@Model.Scores[i].AwayTeamName</p>
+            </div>
+        </div>
     }
+    <button type="submit">Zapisz</button>
+
+ }

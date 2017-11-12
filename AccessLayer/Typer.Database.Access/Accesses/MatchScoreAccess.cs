@@ -23,7 +23,7 @@ namespace Typer.Database.Access
                 AwayTeamGoals = x.AwayTeamGoals,
                 HomeTeamGoals = x.HomeTeamGoals,
                 MatchId = x.MatchId,
-                MatchScoreId = x.MatchScoreId,
+                //MatchScoreId = x.MatchScoreId,
                 AwayTeamName = x.Match.AwayTeam.TeamName,
                 HomeTeamName = x.Match.HomeTeam.TeamName
             }).ToList();
@@ -33,13 +33,9 @@ namespace Typer.Database.Access
 
         public void AddMatchScore(CoreNewMatchScore coreScore)
         {
-            var dbMatchScore = new DbMatchScore
-            {
-                AwayTeamGoals = coreScore.AwayTeamGoals,
-                HomeTeamGoals = coreScore.HomeTeamGoals,
-                MatchId = coreScore.MatchId
-            };
-            _context.DbScores.Add(dbMatchScore);
+            var dbMatchScore = _context.DbScores.FirstOrDefault(x => x.MatchId == coreScore.MatchId);
+            dbMatchScore.HomeTeamGoals = coreScore.HomeTeamGoals;
+            dbMatchScore.AwayTeamGoals = coreScore.AwayTeamGoals;
             _context.SaveChanges();            
         }
         
