@@ -76,6 +76,7 @@
     <Compile Include="Common\VMSeason.cs" />
     <Compile Include="Common\VMMatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Manage\VMManageIndex.cs" />
     <Compile Include="Views\Typer\VMTyperIndex.cs" />
   </ItemGroup>
   <ItemGroup>

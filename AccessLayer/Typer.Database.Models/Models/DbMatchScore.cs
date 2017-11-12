@@ -19,3 +19,4 @@ namespace Typer.Database.Models
         public virtual DbMatch Match { get; set; }
     }
 }
+
