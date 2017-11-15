@@ -13,7 +13,7 @@ namespace Typer.Database.Migrations.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201711121000504_init"; }
+            get { return "201711132126408_init"; }
         }
         
         string IMigrationMetadata.Source

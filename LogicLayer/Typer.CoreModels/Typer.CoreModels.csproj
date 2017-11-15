@@ -51,7 +51,8 @@
     <Compile Include="Models\Season\CoreSeason.cs" />
     <Compile Include="Models\Team\CoreNewTeam.cs" />
     <Compile Include="Models\Team\CoreTeam.cs" />
-    <Compile Include="Models\User\UserDetails.cs" />
+    <Compile Include="Models\User\CoreChangeUserDetails.cs" />
+    <Compile Include="Models\User\CoreUserDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Typer.CoreModels.Models
 {
-    public class UserDetails
+    public class CoreChangeUserDetails
     {
+        public string Id { get; set; }
         public string Username { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string FavoriteTeam { get; set; }
+        public int? FavoriteTeamId { get; set; }
         public string Email { get; set; }
     }
-
 }

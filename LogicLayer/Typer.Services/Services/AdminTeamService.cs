@@ -19,7 +19,7 @@ namespace Typer.Services.AdminTeam
         public VMAdminTeamIndex GetVMIndex()
         {
             var coreTeams = _teamAccess.GetTeams();
-            var vmTeams = coreTeams.Select(t => new VMATeam
+            var vmTeams = coreTeams.Select(t => new VMTeam
             {
                 TeamId = t.TeamId,
                 TeamName = t.TeamName

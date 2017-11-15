@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Typer.CoreModels;
 using Typer.CoreModels.Models;
 
 namespace Typer.Database.Access
@@ -7,5 +8,7 @@ namespace Typer.Database.Access
     {
         void AddTeam(CoreNewTeam coreTeam);
         List<CoreTeam> GetTeams();
+        CoreTeam GetTeam(int teamId);
+         
     }
 }

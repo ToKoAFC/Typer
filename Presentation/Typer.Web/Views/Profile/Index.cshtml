@@ -1,7 +1,22 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
+﻿@model Typer.ViewModels.Views.Profile.VMManageIndex
+<div>
+    @Model.Email <br />
+    @using (Html.BeginForm("ChangeDetails", "Profile", FormMethod.Post))
+    {
+        <p>
+            @Html.ActionLink("Change your password", "ChangePassword", "Manage") <br />
+        </p>
+        <p>
+          Imie: @Html.EditorFor(x => x.Name, new { htmlAttributes = new { placeholder = Model.Name } }) <br />
+        </p>
+        <p>
+          Nawisko:  @Html.EditorFor(x => x.Surname, new { htmlattribute = new { placeholder = Model.Surname } })<br />
+        </p>
+        <p>
+         Ulubiony zespół:   @Html.DropDownListFor(x => x.FavoriteTeamId, Model.SelectListTeams, new { htmlattribute = new { @selected = Model.FavoriteTeam.TeamId } })
+        </p>
+        @Html.HiddenFor(x => x.Email)
+        @Html.HiddenFor(x => x.Username)
+            <input type="submit" value="zapisz" />
+            }
+</div>

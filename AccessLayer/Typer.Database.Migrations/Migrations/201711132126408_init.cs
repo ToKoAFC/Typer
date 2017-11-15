@@ -37,8 +37,17 @@ namespace Typer.Database.Migrations.Migrations
                         ClaimValue = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.Teams",
+                c => new
+                    {
+                        TeamId = c.Int(nullable: false, identity: true),
+                        TeamName = c.String(),
+                    })
+                .PrimaryKey(t => t.TeamId);
             
             CreateTable(
                 "dbo.AspNetUserLogins",
@@ -49,7 +58,7 @@ namespace Typer.Database.Migrations.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -60,8 +69,8 @@ namespace Typer.Database.Migrations.Migrations
                         RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: false)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
@@ -113,15 +122,6 @@ namespace Typer.Database.Migrations.Migrations
                 .Index(t => t.MatchweekId);
             
             CreateTable(
-                "dbo.Teams",
-                c => new
-                    {
-                        TeamId = c.Int(nullable: false, identity: true),
-                        TeamName = c.String(),
-                    })
-                .PrimaryKey(t => t.TeamId);
-            
-            CreateTable(
                 "dbo.Matchweeks",
                 c => new
                     {
@@ -130,7 +130,7 @@ namespace Typer.Database.Migrations.Migrations
                         SeasonId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.MatchweekId)
-                .ForeignKey("dbo.Seasons", t => t.SeasonId, cascadeDelete: true)
+                .ForeignKey("dbo.Seasons", t => t.SeasonId, cascadeDelete: false)
                 .Index(t => t.SeasonId);
             
             CreateTable(
@@ -161,7 +161,7 @@ namespace Typer.Database.Migrations.Migrations
                         RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AppRoles", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.AppRoles", t => t.RoleId, cascadeDelete: false)
                 .Index(t => t.RoleId);
             
             CreateTable(
@@ -199,15 +199,21 @@ namespace Typer.Database.Migrations.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(),
+                        Surname = c.String(),
+                        FavoriteTeamId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.Id)
-                .Index(t => t.Id);
+                .ForeignKey("dbo.Teams", t => t.FavoriteTeamId)
+                .Index(t => t.Id)
+                .Index(t => t.FavoriteTeamId);
             
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.ApplicationUser", "FavoriteTeamId", "dbo.Teams");
             DropForeignKey("dbo.ApplicationUser", "Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AppUserRoles", "RoleId", "dbo.AppRoles");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
@@ -222,6 +228,7 @@ namespace Typer.Database.Migrations.Migrations
             DropForeignKey("dbo.MatchPredictions", "DbMatch_MatchId", "dbo.Matches");
             DropForeignKey("dbo.Matches", "HomeTeamId", "dbo.Teams");
             DropForeignKey("dbo.Matches", "AwayTeamId", "dbo.Teams");
+            DropIndex("dbo.ApplicationUser", new[] { "FavoriteTeamId" });
             DropIndex("dbo.ApplicationUser", new[] { "Id" });
             DropIndex("dbo.AppUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
@@ -246,12 +253,12 @@ namespace Typer.Database.Migrations.Migrations
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Seasons");
             DropTable("dbo.Matchweeks");
-            DropTable("dbo.Teams");
             DropTable("dbo.Matches");
             DropTable("dbo.MatchScores");
             DropTable("dbo.MatchPredictions");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.Teams");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
         }

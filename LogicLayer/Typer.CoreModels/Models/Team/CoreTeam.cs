@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Typer.CoreModels.Models
+namespace Typer.CoreModels
 {
     public class CoreTeam
     {
-        public int TeamId { get; set; }
+        public int? TeamId { get; set; }
         public string TeamName { get; set; }
-
     }
 }

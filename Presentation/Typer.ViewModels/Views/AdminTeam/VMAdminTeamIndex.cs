@@ -5,6 +5,6 @@ namespace Typer.ViewModels.Views.AdminTeam
 {
     public class VMAdminTeamIndex
     {
-        public List<VMATeam> Teams { get; set; }
+        public List<VMTeam> Teams { get; set; }
     }
 }
