@@ -10,12 +10,14 @@ namespace Typer.Database.Models
         public DbTeam()
         {
             Players = new HashSet<DbPlayer>();
+            FavoriteTeamUsers = new HashSet<DbAppUser>();
         }
 
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TeamId { get; set; }
         public string TeamName { get; set; }
 
+        public ICollection<DbAppUser> FavoriteTeamUsers { get; set; }
         public virtual ICollection<DbPlayer> Players { get; set; }
     }
 }
