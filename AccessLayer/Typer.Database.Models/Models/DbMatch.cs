@@ -24,11 +24,15 @@ namespace Typer.Database.Models
         public int AwayTeamId { get; set; }
 
         public int MatchweekId { get; set; }
-        
+
+        [Range(0,int.MaxValue)]
+        public int? HomeTeamGoals { get; set; }
+
+        [Range(0,int.MaxValue)]
+        public int? AwayTeamGoals { get; set; }
+
         public DateTime MatchDate { get; set; }
-
-
-
+        
         [ForeignKey("MatchweekId")]
         public virtual DbMatchweek Matchweek { get; set; }
 
@@ -37,8 +41,6 @@ namespace Typer.Database.Models
 
         [ForeignKey("AwayTeamId")]
         public virtual DbTeam AwayTeam { get; set; }
-
-        public virtual DbMatchScore MatchScore { get; set; }
 
         public virtual ICollection<DbMatchPrediction> MatchPredictions { get; set; }
     }

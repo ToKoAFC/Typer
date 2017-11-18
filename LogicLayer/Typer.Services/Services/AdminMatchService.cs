@@ -26,7 +26,9 @@ namespace Typer.Services.AdminMatch
                 AwayTeamId = x.AwayTeamId,
                 MatchweekId = x.MatchweekId,
                 AwayTeamName = x.AwayTeamName,
-                HomeTeamName = x.HomeTeamName
+                HomeTeamName = x.HomeTeamName,
+                AwayTeamGoals = x.AwayTeamGoals,
+                HomeTeamGoals = x.HomeTeamGoals
             }).ToList();
 
             var model = new VMAdminMatchIndex

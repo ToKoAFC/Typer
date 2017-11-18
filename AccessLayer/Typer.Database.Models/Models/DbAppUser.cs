@@ -18,9 +18,9 @@ namespace Typer.Database.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public int? FavoriteTeamId { get; set; }
-        [ForeignKey("FavoriteTeamId")]
-        public DbTeam FavoriteTeam { get; set; }
 
+        [ForeignKey("FavoriteTeamId")]
+        public virtual DbTeam FavoriteTeam { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<DbAppUser> manager)
         {

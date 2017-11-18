@@ -23,7 +23,9 @@ namespace Typer.Database.Access
                 HomeTeamId = x.HomeTeamId,
                 MatchweekId = x.MatchweekId,
                 AwayTeamName = x.AwayTeam.TeamName,
-                HomeTeamName = x.HomeTeam.TeamName
+                HomeTeamName = x.HomeTeam.TeamName,
+                HomeTeamGoals = x.HomeTeamGoals,
+                AwayTeamGoals = x.AwayTeamGoals
             }).ToList();
         }
         public List<CoreMatch> GetMatches(int matchweekId)
@@ -34,7 +36,9 @@ namespace Typer.Database.Access
                 HomeTeamId = x.HomeTeamId,
                 MatchweekId = x.MatchweekId,
                 AwayTeamName = x.AwayTeam.TeamName,
-                HomeTeamName = x.HomeTeam.TeamName
+                HomeTeamName = x.HomeTeam.TeamName,
+                HomeTeamGoals = x.HomeTeamGoals,
+                AwayTeamGoals = x.AwayTeamGoals
             }).ToList();
             return matches;
         }
@@ -47,7 +51,6 @@ namespace Typer.Database.Access
                 HomeTeamId = coreMatch.HomeTeamId,
                 AwayTeamId = coreMatch.AwayTeamId,
                 MatchDate = coreMatch.MatchDate,
-                MatchScore = new DbMatchScore()
             };
             _context.DbMatches.Add(dbMatch);                       
             _context.SaveChanges();

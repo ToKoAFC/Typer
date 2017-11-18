@@ -61,18 +61,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\VMPlayer.cs" />
-    <Compile Include="Views\AdminMatchScore\VMAdminMatchScoreIndex.cs" />
     <Compile Include="Views\AdminMatchweek\VMAdminMatchweekCreate.cs" />
     <Compile Include="Views\AdminMatchweek\VMAdminMatchweekIndex.cs" />
     <Compile Include="Views\AdminMatch\VMAdminMatchCreate.cs" />
     <Compile Include="Views\AdminMatch\VMAdminMatchIndex.cs" />
-    <Compile Include="Views\AdminPlayer\VMAdminPlayerIndex.cs" />
     <Compile Include="Views\AdminSeason\VMAdminSeasonCreate.cs" />
     <Compile Include="Views\AdminSeason\VMAdminSeasonIndex.cs" />
     <Compile Include="Views\AdminTeam\VMAdminTeamIndex.cs" />
     <Compile Include="Views\AdminTeam\VMAdminTeamCreate.cs" />
-    <Compile Include="Common\VMMatchScore.cs" />
     <Compile Include="Common\VMMatchweek.cs" />
     <Compile Include="Common\VMTeam.cs" />
     <Compile Include="Common\VMSeason.cs" />

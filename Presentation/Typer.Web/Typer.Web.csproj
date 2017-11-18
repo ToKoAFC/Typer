@@ -193,7 +193,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminMatchController.cs" />
-    <Compile Include="Controllers\AdminMatchScoreController.cs" />
     <Compile Include="Controllers\AdminMatchweekController.cs" />
     <Compile Include="Controllers\AdminSeasonController.cs" />
     <Compile Include="Controllers\AdminTeamController.cs" />
@@ -275,8 +274,6 @@
     <Content Include="Views\Statistic\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Typer\MatchesListPartial.cshtml" />
-    <Content Include="Views\AdminMatchScore\Index.cshtml" />
-    <Content Include="Views\AdminMatchScore\Create.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />

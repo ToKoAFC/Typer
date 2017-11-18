@@ -1,4 +1,4 @@
-﻿using Typer.CoreModels.Models.Score;
+﻿using Typer.CoreModels.Models.Match;
 
 namespace Typer.CoreModels.Models.MatchPrediction
 {
@@ -6,6 +6,10 @@ namespace Typer.CoreModels.Models.MatchPrediction
     {
         public int MatchPredictionId { get; set; }
         public string UserId { get; set; }
-        public CoreMatchScore MatchScore { get; set; }
+        public int? HomeTeamGoals { get; set; }
+        public int? AwayTeamGoals { get; set; }
+        public int MatchId { get; set; }
+        public string HomeTeamName { get; set; }
+        public string AwayTeamName { get; set; }
     }
 }

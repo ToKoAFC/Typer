@@ -53,13 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201711132126408_init.cs" />
-    <Compile Include="Migrations\201711132126408_init.Designer.cs">
-      <DependentUpon>201711132126408_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711142018048_AddTeamPlayer.cs" />
-    <Compile Include="Migrations\201711142018048_AddTeamPlayer.Designer.cs">
-      <DependentUpon>201711142018048_AddTeamPlayer.cs</DependentUpon>
+    <Compile Include="Migrations\201711182020294_Init.cs" />
+    <Compile Include="Migrations\201711182020294_Init.Designer.cs">
+      <DependentUpon>201711182020294_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TyperContext.cs" />
@@ -76,11 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711132126408_init.resx">
-      <DependentUpon>201711132126408_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711142018048_AddTeamPlayer.resx">
-      <DependentUpon>201711142018048_AddTeamPlayer.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711182020294_Init.resx">
+      <DependentUpon>201711182020294_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

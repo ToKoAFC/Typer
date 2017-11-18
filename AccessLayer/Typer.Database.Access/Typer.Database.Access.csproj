@@ -61,19 +61,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accesses\AppUserAccess.cs" />
-    <Compile Include="Accesses\MatchScoreAccess.cs" />
     <Compile Include="Accesses\MatchweekAccess.cs" />
     <Compile Include="Accesses\MatchAccess.cs" />
-    <Compile Include="Accesses\PlayerAccess.cs" />
     <Compile Include="Accesses\SeasonAccess.cs" />
     <Compile Include="Accesses\MatchPredictionAccess.cs" />
     <Compile Include="Accesses\TeamAccess.cs" />
     <Compile Include="Interfaces\IAppUserAccess.cs" />
     <Compile Include="Interfaces\IMatchPredictionAccess.cs" />
-    <Compile Include="Interfaces\IMatchScoreAccess.cs" />
     <Compile Include="Interfaces\IMatchweekAccess.cs" />
     <Compile Include="Interfaces\IMatchAccess.cs" />
-    <Compile Include="Interfaces\IPlayerAccess.cs" />
     <Compile Include="Interfaces\ISeasonAccess.cs" />
     <Compile Include="Interfaces\ITeamAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -15,19 +15,14 @@ namespace Typer.Database.Migrations
         public DbSet<DbSeason> DbSeasons { get; set; }
         public DbSet<DbMatchweek> DbMatchweeks { get; set; }
         public DbSet<DbMatch> DbMatches { get; set; }
-        public DbSet<DbMatchScore> DbScores { get; set; }
         public DbSet<DbMatchPrediction> DbMatchPredictions { get; set; }
         public DbSet<DbAppUser> DbAppUsers { get; set; }
-        public DbSet<DbPlayer> DbPlayers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {
             base.OnModelCreating(builder);
             builder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
-            builder.Entity<DbMatch>()
-                        .HasOptional(o => o.MatchScore)
-                        .WithOptionalPrincipal(p => p.Match);
             
             var user = builder.Entity<DbAppUser>().ToTable("ApplicationUser");
 
