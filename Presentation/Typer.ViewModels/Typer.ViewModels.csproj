@@ -61,11 +61,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\VMPlayer.cs" />
     <Compile Include="Views\AdminMatchScore\VMAdminMatchScoreIndex.cs" />
     <Compile Include="Views\AdminMatchweek\VMAdminMatchweekCreate.cs" />
     <Compile Include="Views\AdminMatchweek\VMAdminMatchweekIndex.cs" />
     <Compile Include="Views\AdminMatch\VMAdminMatchCreate.cs" />
     <Compile Include="Views\AdminMatch\VMAdminMatchIndex.cs" />
+    <Compile Include="Views\AdminPlayer\VMAdminPlayerIndex.cs" />
     <Compile Include="Views\AdminSeason\VMAdminSeasonCreate.cs" />
     <Compile Include="Views\AdminSeason\VMAdminSeasonIndex.cs" />
     <Compile Include="Views\AdminTeam\VMAdminTeamIndex.cs" />
@@ -80,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LogicLayer\Typer.Globals\Typer.Globals.csproj">
+      <Project>{4A55995D-5862-49EC-8885-35176639C143}</Project>
+      <Name>Typer.Globals</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

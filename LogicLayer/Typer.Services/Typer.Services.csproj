@@ -71,12 +71,14 @@
     <Compile Include="Interfaces\IAdminMatchScoreService.cs" />
     <Compile Include="Interfaces\AdminMatchService.cs" />
     <Compile Include="Interfaces\IAdminMatchweekService.cs" />
+    <Compile Include="Interfaces\IAdminPlayerService.cs" />
     <Compile Include="Interfaces\IAdminSeasonService.cs" />
     <Compile Include="Interfaces\IAdminTeamService.cs" />
     <Compile Include="Interfaces\ITyperService.cs" />
     <Compile Include="Services\AdminMatchScoreService.cs" />
     <Compile Include="Services\AdminMatchweekService.cs" />
     <Compile Include="Services\AdminMatchService.cs" />
+    <Compile Include="Services\AdminPlayerService.cs" />
     <Compile Include="Services\AdminSeasonService.cs" />
     <Compile Include="Services\AdminTeamService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +97,10 @@
     <ProjectReference Include="..\Typer.CoreModels\Typer.CoreModels.csproj">
       <Project>{812BE741-C924-4843-AD48-BAF63CFB2126}</Project>
       <Name>Typer.CoreModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Typer.Globals\Typer.Globals.csproj">
+      <Project>{4A55995D-5862-49EC-8885-35176639C143}</Project>
+      <Name>Typer.Globals</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

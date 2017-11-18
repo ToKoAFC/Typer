@@ -23,7 +23,6 @@ namespace Typer.Database.Access
                 AwayTeamGoals = x.AwayTeamGoals,
                 HomeTeamGoals = x.HomeTeamGoals,
                 MatchId = x.MatchId,
-                //MatchScoreId = x.MatchScoreId,
                 AwayTeamName = x.Match.AwayTeam.TeamName,
                 HomeTeamName = x.Match.HomeTeam.TeamName
             }).ToList();

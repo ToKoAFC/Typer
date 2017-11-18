@@ -62,6 +62,7 @@
     <Compile Include="Models\DbMatchweek.cs" />
     <Compile Include="Models\DbMatch.cs" />
     <Compile Include="Models\DbMatchScore.cs" />
+    <Compile Include="Models\DbPlayer.cs" />
     <Compile Include="Models\DbTeam.cs" />
     <Compile Include="Models\DbSeason.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,6 +71,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\LogicLayer\Typer.Globals\Typer.Globals.csproj">
+      <Project>{4A55995D-5862-49EC-8885-35176639C143}</Project>
+      <Name>Typer.Globals</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

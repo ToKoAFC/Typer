@@ -6,9 +6,10 @@ namespace Typer.Database.Models
     [Table("MatchScores")]
     public  class DbMatchScore
     {
-        
+        [Range(0, int.MaxValue)]
         public int? HomeTeamGoals { get; set; }
 
+        [Range(0,int.MaxValue)]
         public int? AwayTeamGoals { get; set; }
 
         [Key]

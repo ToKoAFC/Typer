@@ -8,7 +8,6 @@ namespace Typer.CoreModels.Models.Score
 {
     public class CoreMatchScore
     {
-        public int MatchScoreId { get; set; }
         public string HomeTeamName { get; set; }
         public int? HomeTeamGoals { get; set; }
         public string AwayTeamName { get; set; }
