@@ -1,9 +1,12 @@
 ﻿using System;
-using Typer.CoreModels.Models.Match;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Typer.CoreModels.Models.MatchPrediction
+namespace Typer.ViewModels.Views.Typer
 {
-    public class CoreMatchPrediction
+    public class VMMatchPrediction
     {
         public int MatchPredictionId { get; set; }
         public int? HomeTeamGoals { get; set; }

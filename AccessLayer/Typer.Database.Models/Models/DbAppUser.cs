@@ -18,6 +18,7 @@ namespace Typer.Database.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public int? FavoriteTeamId { get; set; }
+        public int Points { get; set; }
 
         [ForeignKey("FavoriteTeamId")]
         public virtual DbTeam FavoriteTeam { get; set; }
