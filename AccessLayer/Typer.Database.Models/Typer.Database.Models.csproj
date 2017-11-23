@@ -61,6 +61,7 @@
     <Compile Include="Models\DbMatchPrediction.cs" />
     <Compile Include="Models\DbMatchweek.cs" />
     <Compile Include="Models\DbMatch.cs" />
+    <Compile Include="Models\DbPoints.cs" />
     <Compile Include="Models\DbTeam.cs" />
     <Compile Include="Models\DbSeason.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

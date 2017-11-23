@@ -1,0 +1,19 @@
+﻿@model Typer.ViewModels.Views.Statisctic.VMStatisticIndex
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Punkty</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model.UserStatistics)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.UserPoints</td>
+            </tr>
+        }
+    </tbody>
+</table>

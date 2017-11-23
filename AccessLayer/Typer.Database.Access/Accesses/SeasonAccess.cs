@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Typer.CoreModels.Models.Season;
 using Typer.Database.Migrations;
@@ -16,7 +17,8 @@ namespace Typer.Database.Access
 
         public List<CoreSeason> GetSeasons()
         {
-            return _context.DbSeasons.Select(x => new CoreSeason { SeasonId = x.SeasonId, EndYear = x.YearEnd, StartYear = x.YearStart }).ToList();
+            return _context.DbSeasons.Select(x => new CoreSeason { SeasonId = x.SeasonId, EndYear = x.YearEnd, StartYear = x.YearStart })
+                .OrderByDescending(x => x.StartYear).ToList();
         }
 
         public void AddSeason(CoreNewSeason coreSeason)

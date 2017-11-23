@@ -26,10 +26,6 @@
 </div>
 
 <script>
-    $("#seasonList").change(function (){
-        loadMatchweeks();
-    })
-
     $(function () {
         $('[data-toggle="datepicker"]').datepicker({
             autoHide: true,
@@ -38,19 +34,26 @@
             format: 'yyyy-mm-dd'
         });
     });
+
     $(document).ready(function () {        
         loadMatchweeks();        
     })
 
-    function loadMatchweeks() {
+    $("#seasonList").change(function () {
+        loadMatchweeks();
+    })
+
+    function loadMatchweeks()
+    {
         var seasonId = $("#seasonList").val();
-                $.ajax({
-            type: 'POST',
-            url: '@Url.Action("GetGameweekList")',
+        $.ajax
+            ({
+                type: 'POST',
+                url: '@Url.Action("GetGameweekList")',
                 dataType: 'json',
                 data: { seasonId: seasonId },
-                success: function (response) {
-
+                success: function (response)
+                {
                     var matchweeks = $("#matchweekList");
                     matchweeks.empty();
                     $.each(response, function (index, item) {

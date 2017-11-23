@@ -10,11 +10,13 @@ namespace Typer.Database.Models
         public DbSeason()
         {
             Matchweeks = new HashSet<DbMatchweek>();
+            Points = new HashSet<DbPoints>();
         }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SeasonId { get; set; }
         public int YearStart { get; set; }
         public int YearEnd { get; set; }
         public virtual ICollection<DbMatchweek> Matchweeks { get; set; }
+        public virtual ICollection<DbPoints> Points { get; set; }
     }
 }

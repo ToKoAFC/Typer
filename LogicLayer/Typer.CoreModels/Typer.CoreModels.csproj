@@ -48,6 +48,7 @@
     <Compile Include="Models\Match\CoreNewMatch.cs" />
     <Compile Include="Models\Season\CoreNewSeason.cs" />
     <Compile Include="Models\Season\CoreSeason.cs" />
+    <Compile Include="Models\Statistic\CoreUserStatistic.cs" />
     <Compile Include="Models\Team\CoreNewTeam.cs" />
     <Compile Include="Models\Team\CoreTeam.cs" />
     <Compile Include="Models\User\CoreChangeUserDetails.cs" />
