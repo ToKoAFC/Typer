@@ -56,5 +56,24 @@ namespace Typer.Web.Controllers
             var matchweeks = _adminMatchweekService.GetMatchweekSelectList(seasonId);
             return Json(matchweeks, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult MatchScores()
+        {
+            var model = _adminMatchService.GetAdminMatchIndex();
+            return View(model);
+        }
+
+        public ActionResult CreateMatchScore()
+        {
+            var model = _adminMatchService.GetAdminMatchIndex();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult CreateMatchScore(VMAdminMatchIndex model)
+        {
+            _adminMatchService.CreateMatchScore(model);
+            return RedirectToAction("MatchScores");
+        }
     }
 }

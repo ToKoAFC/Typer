@@ -55,5 +55,13 @@ namespace Typer.Database.Access
             _context.DbMatches.Add(dbMatch);                       
             _context.SaveChanges();
         }
+
+        public void CreateMatchScore(CoreNewMatchScore coreScore)
+        {
+            var match = _context.DbMatches.FirstOrDefault(x => x.MatchId == coreScore.MatchId);
+            match.HomeTeamGoals = coreScore.HomeTeamGoals;
+            match.AwayTeamGoals = coreScore.AwayTeamGoals;
+            _context.SaveChanges();
+        }
     }
 }

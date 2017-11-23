@@ -6,5 +6,6 @@ namespace Typer.Services.Interfaces
     {
         VMAdminMatchIndex GetAdminMatchIndex();
         void CreateMatch(VMAdminMatchCreate vmMatch);
+        void CreateMatchScore(VMAdminMatchIndex vmMatchScores);
     }
 }
