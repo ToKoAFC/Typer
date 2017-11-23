@@ -8,5 +8,6 @@ namespace Typer.Database.Access
         List<CoreMatch> GetMatches();
         List<CoreMatch> GetMatches(int matchweekId);
         void CreateMatch(CoreNewMatch coreMatch);
+        void CreateMatchScore(CoreNewMatchScore coreScore);
     }
 }

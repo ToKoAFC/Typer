@@ -49,6 +49,20 @@ namespace Typer.Services.AdminMatch
                 MatchDate = vmMatch.MatchDate
             };
             _matchAccess.CreateMatch(coreModel);
-        }        
+        }
+
+        public void CreateMatchScore(VMAdminMatchIndex vmMatchScores)
+        {
+            foreach (var match in vmMatchScores.Matches)
+            {
+                var matchScore = new CoreNewMatchScore
+                {
+                    AwayTeamGoals = match.AwayTeamGoals,
+                    HomeTeamGoals = match.HomeTeamGoals,
+                    MatchId = match.MatchId
+                };
+                _matchAccess.CreateMatchScore(matchScore);
+            }
+        }
     }
 }

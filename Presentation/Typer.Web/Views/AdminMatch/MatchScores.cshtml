@@ -1,0 +1,27 @@
+﻿@model Typer.ViewModels.Views.AdminMatch.VMAdminMatchIndex
+
+@{
+    ViewBag.Title = "MatchScores";
+}
+
+<div class="row page-header">
+    <div class="col-md-11">
+        <h4 class="headline-title">Zarządzaj wynikami</h4>
+    </div>
+    <div class="col-md-1">
+        @Html.ActionLink("Edytuj wyniki", "CreateMatchScore", "AdminMatch", null, new { @class = "btn btn-default" })
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        @foreach (var match in Model.Matches)
+        {
+            <div class="row">
+                <div class="col-md-2">@match.HomeTeamName</div>
+                <div class="col-md-2">@match.HomeTeamGoals</div>
+                <div class="col-md-2">@match.AwayTeamGoals</div>
+                <div class="col-md-2">@match.AwayTeamName</div>
+            </div>
+        }
+    </div>
+</div>
