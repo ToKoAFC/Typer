@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Typer.Services.Interfaces;
 using Typer.ViewModels.Common;
@@ -9,40 +10,24 @@ namespace Typer.Web.Controllers
     [Authorize]
     public class TyperController : Controller
     {
-        private readonly IAdminMatchweekService _adminMatchweekService;
-        private readonly IAdminSeasonService _adminSeasonService;
         private readonly ITyperService _typerService;
 
-        public TyperController(IAdminMatchweekService adminMatchweekService, 
-                                IAdminSeasonService adminSeasonService,
-                                ITyperService typerService)
+        public TyperController(ITyperService typerService)
         {
-            _adminMatchweekService = adminMatchweekService;
-            _adminSeasonService = adminSeasonService;
             _typerService = typerService;
         }
 
         public ActionResult Index()
         {
-            var seasons = _adminSeasonService.GetSeasonSelectList();
-            var model = new VMTyperIndex()
-            {
-                Seasons = seasons,
-                Matches = new List<VMMatch>(),
-                Matchweeks = new SelectList(new List<string>())
-            };
+            var model = new VMTyperIndex { Matches = _typerService.GetTyperIndexMatches(User.Identity.GetUserId()) };
             return View(model);
         }
-        public JsonResult GetMatchweekList(int seasonId)
+
+        public ActionResult ChangeMatchPredictions(VMTyperIndex model)
         {
-            var seasons = _adminMatchweekService.GetMatchweekSelectList(seasonId);
-            return Json(seasons);
-        }
-        public ActionResult GetMatches(int matchweekId)
-        {  
-            var matches = _typerService.GetTyperIndexMatches(matchweekId);
-            var model = new VMTyperIndex { Matches = matches };
-            return PartialView("MatchesListPartial", model);
+            var userId = User.Identity.GetUserId();
+            _typerService.ChangeMatchPredictions(model, userId);
+            return RedirectToAction("Index");
         }
     }
 }
