@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Typer.CoreModels.Models.Match;
 using Typer.CoreModels.Models.MatchPrediciton;
 using Typer.CoreModels.Models.MatchPrediction;
+using Typer.CoreModels.Models.Statistic;
 
 namespace Typer.Database.Access
 {
@@ -8,5 +10,7 @@ namespace Typer.Database.Access
     {
         List<CoreMatchPrediction> GetMatchPredictions(string userId);
         void ChangeMatchPrediction(CoreChangeMatchPrediction match);
+        void UpdatePredictions(List<CoreMatch> matches);
+        List<CoreUserStatistic> GetUsetStatistics(int seasonId);
     }
 }

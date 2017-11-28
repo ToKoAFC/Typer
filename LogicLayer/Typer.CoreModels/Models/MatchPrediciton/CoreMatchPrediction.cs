@@ -12,5 +12,7 @@ namespace Typer.CoreModels.Models.MatchPrediction
         public string HomeTeamName { get; set; }
         public string AwayTeamName { get; set; }
         public DateTime MatchDate { get; set; }
+        public string UserId { get; set; }
+        public int? Points { get; set; }
     }
 }

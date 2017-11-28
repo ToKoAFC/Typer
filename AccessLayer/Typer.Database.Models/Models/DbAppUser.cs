@@ -14,7 +14,7 @@ namespace Typer.Database.Models
         public DbAppUser()
         {
             Id = Guid.NewGuid().ToString();
-            Points = new HashSet<DbPoints>();
+            MatchPredictions = new HashSet<DbMatchPrediction>();
         }
 
         public string Name { get; set; }
@@ -25,7 +25,7 @@ namespace Typer.Database.Models
         [ForeignKey("FavoriteTeamId")]
         public virtual DbTeam FavoriteTeam { get; set; }
 
-        public virtual ICollection<DbPoints> Points { get; set; }
+        public virtual ICollection<DbMatchPrediction> MatchPredictions { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<DbAppUser> manager)
         {

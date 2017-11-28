@@ -12,18 +12,18 @@ namespace Typer.Services.Statistic
 {
     public class StatisticService : IStatisticService
     {
-        private readonly IPointsAccess _pointsAccess;
         private readonly ISeasonAccess _seasonAccess;
+        private readonly IMatchPredictionAccess _matchPredictionAccess;
 
-        public StatisticService(IPointsAccess pointsAccess, ISeasonAccess seasonAccess)
+        public StatisticService( ISeasonAccess seasonAccess, IMatchPredictionAccess matchPredictionAccess)
         {
-            _pointsAccess = pointsAccess;
             _seasonAccess = seasonAccess;
+            _matchPredictionAccess = matchPredictionAccess;
         }
 
-        public List<VMUserStatistic> GetUserStatistics(string userId, int seasonId)
+        public List<VMUserStatistic> GetUserStatistics(int seasonId)
         {
-            return _pointsAccess.GetUserStatistic(seasonId, userId).Select(x => new VMUserStatistic
+            return _matchPredictionAccess.GetUsetStatistics(seasonId).Select(x => new VMUserStatistic
             {
                 Username = x.Username,
                 UserPoints = x.UserPoints

@@ -9,6 +9,6 @@ namespace Typer.ViewModels.Views.Statisctic
     public class VMUserStatistic
     {
         public string Username { get; set; }
-        public int UserPoints { get; set; }
+        public int? UserPoints { get; set; }
     }
 }

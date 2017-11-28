@@ -25,7 +25,7 @@ namespace Typer.Web.Controllers
         [HttpGet]
         public PartialViewResult GetStatistics(int seasonId)
         {
-            var statistics = _statisticService.GetUserStatistics(User.Identity.GetUserId(), seasonId);
+            var statistics = _statisticService.GetUserStatistics(seasonId);
             var model = new VMStatisticIndex { UserStatistics = statistics };
             return PartialView("StatisticsPartial", model);
         }

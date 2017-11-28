@@ -17,7 +17,6 @@ namespace Typer.Database.Migrations
         public DbSet<DbMatch> DbMatches { get; set; }
         public DbSet<DbMatchPrediction> DbMatchPredictions { get; set; }
         public DbSet<DbAppUser> DbAppUsers { get; set; }
-        public DbSet<DbPoints> Points { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {

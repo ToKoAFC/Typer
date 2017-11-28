@@ -9,6 +9,6 @@ namespace Typer.CoreModels.Models.Statistic
     public class CoreUserStatistic
     {
         public string Username { get; set; }
-        public int UserPoints { get; set; }
+        public int? UserPoints { get; set; }
     }
 }

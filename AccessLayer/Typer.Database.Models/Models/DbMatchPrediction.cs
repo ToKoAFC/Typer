@@ -11,6 +11,8 @@ namespace Typer.Database.Models
 
         public string UserId { get; set; }
 
+        public int? Points { get; set; }
+
         [Range(0, int.MaxValue)]
         public int? HomeTeamGoals { get; set; }
 

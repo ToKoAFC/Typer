@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Typer.CoreModels.Models.Match;
+using Typer.CoreModels.Models.MatchPrediction;
 using Typer.Database.Access;
 using Typer.Services.Interfaces;
 using Typer.ViewModels.Common;
@@ -10,10 +11,12 @@ namespace Typer.Services.AdminMatch
     public class AdminMatchService : IAdminMatchService
     {
         private readonly IMatchAccess _matchAccess;
+        private readonly IMatchPredictionAccess _matchPredictionAccess;
 
-        public AdminMatchService(IMatchAccess matchAccess)
+        public AdminMatchService(IMatchAccess matchAccess, IMatchPredictionAccess matchPredictionAccess)
         {
             _matchAccess = matchAccess;
+            _matchPredictionAccess = matchPredictionAccess;
         }
 
         public VMAdminMatchIndex GetAdminMatchIndex()
@@ -53,6 +56,15 @@ namespace Typer.Services.AdminMatch
 
         public void CreateMatchScore(VMAdminMatchIndex vmMatchScores)
         {
+
+            var matchPredictions = vmMatchScores.Matches.Select(x => new CoreMatch
+            {
+                AwayTeamGoals = x.AwayTeamGoals,
+                HomeTeamGoals = x.HomeTeamGoals,
+                MatchId = x.MatchId
+            }).ToList();
+            _matchPredictionAccess.UpdatePredictions(matchPredictions);
+
             foreach (var match in vmMatchScores.Matches)
             {
                 var matchScore = new CoreNewMatchScore

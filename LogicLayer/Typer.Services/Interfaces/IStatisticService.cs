@@ -10,7 +10,7 @@ namespace Typer.Services.Interfaces
 {
     public interface IStatisticService
     {
-        List<VMUserStatistic> GetUserStatistics(string userId, int seasonId);
+        List<VMUserStatistic> GetUserStatistics(int seasonId);
         SelectList GetSeasonSelectList();
     }
 }
