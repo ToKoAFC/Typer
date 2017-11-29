@@ -16,5 +16,6 @@ namespace Typer.ViewModels.Common
         public string AwayTeamName { get; set; }
         public int? HomeTeamGoals { get; set; }
         public int? AwayTeamGoals { get; set; }
+        //public bool IsScoreChanged { get; set; }
     }
 }

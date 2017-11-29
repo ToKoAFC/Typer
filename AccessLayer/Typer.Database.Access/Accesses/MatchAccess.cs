@@ -25,7 +25,8 @@ namespace Typer.Database.Access
                 AwayTeamName = x.AwayTeam.TeamName,
                 HomeTeamName = x.HomeTeam.TeamName,
                 HomeTeamGoals = x.HomeTeamGoals,
-                AwayTeamGoals = x.AwayTeamGoals
+                AwayTeamGoals = x.AwayTeamGoals,
+                //IsScoreChanged = false
             }).ToList();
         }
         public List<CoreMatch> GetMatches(int matchweekId)
@@ -38,7 +39,8 @@ namespace Typer.Database.Access
                 AwayTeamName = x.AwayTeam.TeamName,
                 HomeTeamName = x.HomeTeam.TeamName,
                 HomeTeamGoals = x.HomeTeamGoals,
-                AwayTeamGoals = x.AwayTeamGoals
+                AwayTeamGoals = x.AwayTeamGoals,
+                //IsScoreChanged = false
             }).ToList();
             return matches;
         }
@@ -51,17 +53,26 @@ namespace Typer.Database.Access
                 HomeTeamId = coreMatch.HomeTeamId,
                 AwayTeamId = coreMatch.AwayTeamId,
                 MatchDate = coreMatch.MatchDate,
+                //IsScoreChanged = false
             };
             _context.DbMatches.Add(dbMatch);                       
             _context.SaveChanges();
         }
 
-        public void CreateMatchScore(CoreNewMatchScore coreScore)
-        {
-            var match = _context.DbMatches.FirstOrDefault(x => x.MatchId == coreScore.MatchId);
-            match.HomeTeamGoals = coreScore.HomeTeamGoals;
-            match.AwayTeamGoals = coreScore.AwayTeamGoals;
-            _context.SaveChanges();
+        public void CreateMatchScore(List<CoreNewMatchScore> coreScore)
+        {            
+            foreach (var score in coreScore)
+            {
+                var match = _context.DbMatches.FirstOrDefault(x => x.MatchId == score.MatchId);
+                if (match.HomeTeamGoals != score.HomeTeamGoals || match.AwayTeamGoals != score.AwayTeamGoals)
+                {
+                    //match.IsScoreChanged = true;
+                    match.HomeTeamGoals = score.HomeTeamGoals;
+                    match.AwayTeamGoals = score.AwayTeamGoals;
+                    _context.SaveChanges();
+                }
+
+            }
         }
     }
 }

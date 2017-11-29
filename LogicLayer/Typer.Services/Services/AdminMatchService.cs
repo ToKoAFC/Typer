@@ -28,7 +28,8 @@ namespace Typer.Services.AdminMatch
                 AwayTeamName = x.AwayTeamName,
                 HomeTeamName = x.HomeTeamName,
                 AwayTeamGoals = x.AwayTeamGoals,
-                HomeTeamGoals = x.HomeTeamGoals
+                HomeTeamGoals = x.HomeTeamGoals,
+                //IsScoreChanged = x.IsScoreChanged
             }).ToList();
 
             var model = new VMAdminMatchIndex
@@ -52,17 +53,14 @@ namespace Typer.Services.AdminMatch
         }
 
         public void CreateMatchScore(VMAdminMatchIndex vmMatchScores)
-        {
-            foreach (var match in vmMatchScores.Matches)
+        {            
+            var coreMatches = vmMatchScores.Matches.Select(x => new CoreNewMatchScore
             {
-                var matchScore = new CoreNewMatchScore
-                {
-                    AwayTeamGoals = match.AwayTeamGoals,
-                    HomeTeamGoals = match.HomeTeamGoals,
-                    MatchId = match.MatchId
-                };
-                _matchAccess.CreateMatchScore(matchScore);
-            }
+                AwayTeamGoals = x.AwayTeamGoals,
+                HomeTeamGoals = x.HomeTeamGoals,
+                MatchId = x.MatchId
+            }).ToList();
+            _matchAccess.CreateMatchScore(coreMatches);
         }
     }
 }
