@@ -31,6 +31,8 @@ namespace Typer.Database.Models
         [Range(0,int.MaxValue)]
         public int? AwayTeamGoals { get; set; }
 
+        //public bool IsScoreChanged { get; set; }
+
         public DateTime MatchDate { get; set; }
         
         [ForeignKey("MatchweekId")]

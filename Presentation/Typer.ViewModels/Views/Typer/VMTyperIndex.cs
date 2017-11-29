@@ -6,10 +6,6 @@ namespace Typer.ViewModels.Views.Typer
 {
     public class VMTyperIndex
     {
-        public SelectList Seasons { get; set; }
-        public SelectList Matchweeks { get; set; }
-        public int SeasonId { get; set; }
-        public int MatchweekId { get; set; }
-        public List<VMMatch> Matches { get; set; }
+        public List<VMMatchPrediction> Matches { get; set; }
     }
 }

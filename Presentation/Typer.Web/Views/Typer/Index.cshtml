@@ -1,63 +1,33 @@
 ﻿@model Typer.ViewModels.Views.Typer.VMTyperIndex
 
 
+@using (Html.BeginForm("ChangeMatchPredictions", "Typer", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
 
-    @Html.DropDownListFor(x => x.SeasonId, Model.Seasons, new {@id = "seasonList" })
-    @Html.DropDownListFor(x => x.MatchweekId, Model.Matchweeks, new {@id = "matchweekList" }) <br /><br />
-     <div id="matchesList">
-
-     </div>
-
-
-
-<script>
-    $(document).ready(function () {
-        GetMatchweekList();
-        GetMatches();      
-    })
-
-    $("#seasonList").change(function () {
-        GetMatchweekList();    
-    })
-
-    $("#matchweekList").change(function () {
-        GetMatches();
-    })
-
-    function GetMatchweekList() {
-        var seasonId = $("#seasonList").val();
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("GetMatchweekList")',
-            dataType: 'json',
-            data: { seasonId: seasonId },
-            success: function (response) {
-                var matchweeks = $("#matchweekList");
-                matchweeks.empty();
-                $.each(response, function (index, item) {
-                    var option = $('<option/>');
-                    option.attr({ 'value': item.Value }).text(item.Text);
-                    matchweeks.append(option);
-                });
-            }
-        })
-    }
-
-    function GetMatches()
-    {     
-        $('#matchweekList option[value=1]').attr('selected', 'selected');
-
-        var matchweekId = $("#matchweekList").val();       
-         $.ajax({
-            async: false,
-            url: '@Url.Action("GetMatches")',
-            data: { matchweekId: matchweekId },
-            success: function (response) {
-                $("#matchesList").html(response);
-            }
-         })
-    }
-
-
-</script>
-
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @for (int i = 0; i < Model.Matches.Count; i++)
+        {
+            <div class="form-group">
+                <div class="control-label col-md-1">@Model.Matches[i].HomeTeamName</div>
+                <div class="col-md-5">
+                    @Html.EditorFor(model => Model.Matches[i].HomeTeamGoals, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => Model.Matches[i].HomeTeamGoals, "", new { @class = "text-danger" })
+                </div>
+                <div class="control-label col-md-1">@Model.Matches[i].AwayTeamName</div>
+                <div class="col-md-5">
+                    @Html.EditorFor(model => Model.Matches[i].AwayTeamGoals, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => Model.Matches[i].AwayTeamGoals, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @Html.HiddenFor(x => Model.Matches[i].MatchId)
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

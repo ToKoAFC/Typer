@@ -4,18 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Typer.CoreModels.Models.Match
+namespace Typer.ViewModels.Views.Typer
 {
-    public class CoreMatch
+    public class VMMatchPrediction
     {
-        public int MatchId { get; set; }
-        public int MatchweekId { get; set; }
-        public int HomeTeamId { get; set; }
-        public int AwayTeamId { get; set; }
+        public int MatchPredictionId { get; set; }
         public int? HomeTeamGoals { get; set; }
         public int? AwayTeamGoals { get; set; }
+        public int MatchId { get; set; }
         public string HomeTeamName { get; set; }
         public string AwayTeamName { get; set; }
-        //public bool IsScoreChanged { get; set; }
+        public DateTime MatchDate { get; set; }
     }
 }

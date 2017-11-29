@@ -9,7 +9,6 @@ namespace Typer.ViewModels.Common
     public class VMMatch
     {
         public int MatchId { get; set; }
-
         public int MatchweekId { get; set; }
         public int HomeTeamId { get; set; }
         public int AwayTeamId { get; set; }
@@ -17,5 +16,6 @@ namespace Typer.ViewModels.Common
         public string AwayTeamName { get; set; }
         public int? HomeTeamGoals { get; set; }
         public int? AwayTeamGoals { get; set; }
+        //public bool IsScoreChanged { get; set; }
     }
 }
