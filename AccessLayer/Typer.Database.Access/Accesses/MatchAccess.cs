@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Typer.CoreModels.Models.Match;
+using Typer.CoreModels.Models.Season;
 using Typer.Database.Migrations;
 using Typer.Database.Models;
 
@@ -62,6 +63,19 @@ namespace Typer.Database.Access
             match.HomeTeamGoals = coreScore.HomeTeamGoals;
             match.AwayTeamGoals = coreScore.AwayTeamGoals;
             _context.SaveChanges();
+        }
+
+        public List<CoreMatch> GetMatches(CoreSeason season)
+        {
+            return _context.DbMatches.Where(x => x.Matchweek.SeasonId == season.SeasonId).Select(x => new CoreMatch
+            {
+                AwayTeamGoals = x.AwayTeamGoals,
+                AwayTeamName = x.AwayTeam.TeamName,
+                HomeTeamGoals = x.HomeTeamGoals,
+                HomeTeamName = x.HomeTeam.TeamName,
+                MatchId = x.MatchId,
+                MatchDate = x.MatchDate
+            }).ToList();
         }
     }
 }

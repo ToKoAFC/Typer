@@ -74,6 +74,7 @@
     <Compile Include="Common\VMSeason.cs" />
     <Compile Include="Common\VMMatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Calendar\VMCalendarIndex.cs" />
     <Compile Include="Views\Profile\VMProfileIndex.cs" />
     <Compile Include="Views\Statisctic\VMStatisticIndex.cs" />
     <Compile Include="Views\Statisctic\VMUserStatistic.cs" />

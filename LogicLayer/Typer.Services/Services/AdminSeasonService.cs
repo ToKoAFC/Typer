@@ -11,6 +11,7 @@ namespace Typer.Services.AdminSeason
     public class AdminSeasonService : IAdminSeasonService
     {
         private readonly ISeasonAccess _seasonAccess;
+
         public AdminSeasonService(ISeasonAccess seasonAccess)
         {
             _seasonAccess = seasonAccess;

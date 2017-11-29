@@ -1,7 +1,43 @@
-﻿
+﻿@model Typer.ViewModels.Views.Calendar.VMCalendarIndex
 @{
-    ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
+<div class="row">
+    <div class="col-md-offset-10 col-md-2">
+        @Html.DropDownListFor(x => x.SeasonId, Model.SelectListSeasons, new { @id = "seasonList" })
+    </div>
+</div>
+
+<div class="col-md-offset-2 col-md-8" id="Calendar">
+    
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        loadCalendar();
+    })
+
+    $("#seasonList").change(function () {
+        loadCalendar();
+    })
+
+    function loadCalendar() {
+        var seasonId = $("#seasonList").val();
+        $.ajax
+            ({
+                type: 'GET',
+                url: '@Url.Action("GetMatches")',
+                dataType: 'html',
+                data: { seasonId: seasonId },
+                success: function (response)
+                {
+                    var calendar = $("#Calendar");
+                    calendar.empty();
+                    calendar.html(response);
+                }
+            })
+    }
+</script>

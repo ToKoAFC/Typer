@@ -16,5 +16,6 @@ namespace Typer.CoreModels.Models.Match
         public int? AwayTeamGoals { get; set; }
         public string HomeTeamName { get; set; }
         public string AwayTeamName { get; set; }
+        public DateTime MatchDate { get; set; }
     }
 }
