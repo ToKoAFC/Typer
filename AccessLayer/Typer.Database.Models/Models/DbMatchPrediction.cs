@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Typer.Database.Models
 {
-    [Table("MatchPredictions")]
+    [Table("MatchPredictions")] //todo Mikołaj, remove points
     public class DbMatchPrediction
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]

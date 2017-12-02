@@ -18,47 +18,37 @@ namespace Typer.Database.Access
             _context = new TyperContext();
         }
 
-        public List<CoreMatchPrediction> GetMatchPredictions(string userId)
+        public List<CoreMatchPrediction> GetMatchPredictions(string userId) //todo Mikołaj, add param matchweekdId and change method logic
         {
-            var time = DateTime.Now.AddHours(1);
-            var matchweekId = _context.DbMatches.Where(x => x.MatchDate > time).OrderBy(x => x.MatchDate)
-                .Select(x => x.MatchweekId).FirstOrDefault();
             var result = new List<CoreMatchPrediction>();
-            if (matchweekId == 0)
+            var matchweekId = _context.DbMatches
+                                        .Where(x => x.MatchDate > DateTime.Now.AddHours(1))
+                                        .OrderBy(x => x.MatchDate)
+                                        .Select(x => x.MatchweekId)
+                                        .FirstOrDefault();
+            if (matchweekId != 0)
             {
-                return result;
+                result = _context.DbMatches
+                .Where(x => x.MatchweekId == matchweekId)
+                .OrderBy(x => x.MatchDate)
+                .Select(x => new CoreMatchPrediction
+                {
+                    AwayTeamGoals = x.MatchPredictions.Any(p => p.UserId == userId) ? x.MatchPredictions.FirstOrDefault(p => p.UserId == userId).AwayTeamGoals : null,
+                    AwayTeamName = x.AwayTeam != null ? x.AwayTeam.TeamName : "Unknown",
+                    HomeTeamGoals = x.MatchPredictions.Any(p => p.UserId == userId) ? x.MatchPredictions.FirstOrDefault(p => p.UserId == userId).HomeTeamGoals : null,
+                    HomeTeamName = x.HomeTeam != null ? x.HomeTeam.TeamName : "Unknown",
+                    MatchId = x.MatchId,
+                    MatchPredictionId = x.MatchPredictions.Any(p => p.UserId == userId) ? x.MatchPredictions.FirstOrDefault(p => p.UserId == userId).MatchPredictionId : 0,
+                    MatchDate = x.MatchDate
+                })
+                .ToList();
             }
-
-            result = _context.DbMatchPredictions.Where(x => x.UserId == userId && x.Match.MatchweekId == matchweekId)
-                .Select(x => new CoreMatchPrediction
-                {
-                    AwayTeamGoals = x.AwayTeamGoals,
-                    AwayTeamName = x.Match.AwayTeam.TeamName,
-                    HomeTeamGoals = x.HomeTeamGoals,
-                    HomeTeamName = x.Match.HomeTeam.TeamName,
-                    MatchId = x.MatchId,
-                    MatchPredictionId = x.MatchPredictionId,
-                    MatchDate = x.Match.MatchDate
-                }).ToList();
-
-            var myMatchesToPredict = _context.DbMatches
-                .Where(x => !x.MatchPredictions.Where(v => v.UserId == userId).Any() && x.MatchweekId == matchweekId)
-                .Select(x => new CoreMatchPrediction
-                {
-                    AwayTeamName = x.AwayTeam.TeamName,
-                    HomeTeamName = x.HomeTeam.TeamName,
-                    MatchId = x.MatchId,
-                    MatchPredictionId = 0,
-                    MatchDate = x.MatchDate,
-                }).ToList();
-            result.AddRange(myMatchesToPredict);
-            result.OrderBy(x => x.MatchDate);
             return result;
         }
 
         public void ChangeMatchPrediction(CoreChangeMatchPrediction match)
         {
-            if (match.MatchPredictionId == 0)
+            if (match.MatchPredictionId == 0) //todo Mikołaj, change if condition and switch codes
             {
                 _context.DbMatchPredictions.Add(new DbMatchPrediction
                 {
@@ -76,12 +66,15 @@ namespace Typer.Database.Access
             _context.SaveChanges();
         }
 
-        public void UpdatePredictions(List<CoreMatch> matches)
+        public void UpdatePredictions(List<CoreMatch> matches) //todo Mikołaj, remove that shit
         {
             foreach (var match in matches)
             {
-                var matchPredictions = _context.DbMatchPredictions.Where(x => x.MatchId == match.MatchId &&
-                (x.Match.HomeTeamGoals != match.HomeTeamGoals || x.Match.AwayTeamGoals != match.AwayTeamGoals)).ToList();
+                var matchPredictions = _context.DbMatchPredictions
+                                    .Where(x => x.MatchId == match.MatchId &&
+                                          (x.Match.HomeTeamGoals != match.HomeTeamGoals ||
+                                          x.Match.AwayTeamGoals != match.AwayTeamGoals))
+                                    .ToList();
 
                 if (matchPredictions == null)
                     continue;
@@ -107,14 +100,14 @@ namespace Typer.Database.Access
             }
         }
 
-        public List<CoreUserStatistic> GetUsersStatistics(int seasonId)
+        public List<CoreUserStatistic> GetUsersStatistics(int seasonId) //todo Mikołaj, update this method
         {
             var stats = _context.DbAppUsers.Select(x => new CoreUserStatistic
             {
                 Username = x.UserName,
                 UserPoints = x.MatchPredictions
                                 .Where(p =>
-                                p.Match == null ? false : 
+                                p.Match == null ? false :
                                 p.Match.Matchweek == null ? false : p.Match.Matchweek.SeasonId == seasonId)
                                 .Select(v => v.Points).Sum()
             }).ToList();
