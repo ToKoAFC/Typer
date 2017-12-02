@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Typer.CoreModels.Models;
 using Typer.CoreModels.Models.Match;
 using Typer.CoreModels.Models.MatchPrediciton;
 using Typer.CoreModels.Models.MatchPrediction;
@@ -50,7 +49,7 @@ namespace Typer.Database.Access
                     HomeTeamName = x.HomeTeam.TeamName,
                     MatchId = x.MatchId,
                     MatchPredictionId = 0,
-                    MatchDate = x.MatchDate,                
+                    MatchDate = x.MatchDate,
                 }).ToList();
             result.AddRange(myMatchesToPredict);
             result.OrderBy(x => x.MatchDate);
@@ -64,7 +63,7 @@ namespace Typer.Database.Access
                 _context.DbMatchPredictions.Add(new DbMatchPrediction
                 {
                     AwayTeamGoals = match.AwayTeamGoals,
-                    HomeTeamGoals = match.HomeTeamGoals, 
+                    HomeTeamGoals = match.HomeTeamGoals,
                     MatchId = match.MatchId,
                     UserId = match.UserId,
                 });
@@ -87,9 +86,9 @@ namespace Typer.Database.Access
                 if (matchPredictions == null)
                     continue;
 
-                foreach(var matchPrediction in matchPredictions)
+                foreach (var matchPrediction in matchPredictions)
                 {
-                    if(matchPrediction.HomeTeamGoals == match.HomeTeamGoals && matchPrediction.AwayTeamGoals == match.AwayTeamGoals)
+                    if (matchPrediction.HomeTeamGoals == match.HomeTeamGoals && matchPrediction.AwayTeamGoals == match.AwayTeamGoals)
                     {
                         matchPrediction.Points = 3;
                         continue;
@@ -97,7 +96,7 @@ namespace Typer.Database.Access
 
                     if ((matchPrediction.HomeTeamGoals > matchPrediction.AwayTeamGoals && match.HomeTeamGoals > match.AwayTeamGoals) ||
                         (matchPrediction.HomeTeamGoals < matchPrediction.AwayTeamGoals && match.HomeTeamGoals < match.AwayTeamGoals) ||
-                        (matchPrediction.HomeTeamGoals == matchPrediction.AwayTeamGoals && match.HomeTeamGoals == match.AwayTeamGoals))                        
+                        (matchPrediction.HomeTeamGoals == matchPrediction.AwayTeamGoals && match.HomeTeamGoals == match.AwayTeamGoals))
                     {
                         matchPrediction.Points = 1;
                         continue;
@@ -108,43 +107,18 @@ namespace Typer.Database.Access
             }
         }
 
-        public List<CoreUserStatistic> GetUsetStatistics(int seasonId)
+        public List<CoreUserStatistic> GetUsersStatistics(int seasonId)
         {
-            var statistics = new List<CoreUserStatistic>();
-            var userIds = new List<string>();
-
-            var predictions = _context.DbMatchPredictions.Where(x => x.Match.Matchweek.SeasonId == seasonId)
-                .Select(x => new CoreMatchPrediction
-                {
-                    UserId = x.UserId,
-                    Points = x.Points
-                }).ToList();
-
-            foreach(var prediction in predictions)
+            var stats = _context.DbAppUsers.Select(x => new CoreUserStatistic
             {
-                if (userIds.Contains(prediction.UserId))
-                    continue;
-
-                int? userPoints;
-                userPoints = 0;
-
-                var userPredictions = predictions.Where(x => x.UserId == prediction.UserId)
-                .Select(z => new CoreMatchPrediction
-                {
-                    Points = z.Points
-                }).ToList();
-
-                userPredictions.ForEach(x => userPoints += x.Points);
-
-                var username = _context.DbAppUsers.FirstOrDefault(x => x.Id == prediction.UserId).UserName;
-                userIds.Add(prediction.UserId);
-                statistics.Add(new CoreUserStatistic
-                {
-                    Username = username,
-                    UserPoints = userPoints
-                });
-            }
-            return statistics.OrderByDescending(x => x.UserPoints).ToList();
+                Username = x.UserName,
+                UserPoints = x.MatchPredictions
+                                .Where(p =>
+                                p.Match == null ? false : 
+                                p.Match.Matchweek == null ? false : p.Match.Matchweek.SeasonId == seasonId)
+                                .Select(v => v.Points).Sum()
+            }).ToList();
+            return stats;
         }
     }
 }

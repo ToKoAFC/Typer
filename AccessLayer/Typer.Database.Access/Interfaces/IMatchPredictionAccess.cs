@@ -11,6 +11,6 @@ namespace Typer.Database.Access
         List<CoreMatchPrediction> GetMatchPredictions(string userId);
         void ChangeMatchPrediction(CoreChangeMatchPrediction match);
         void UpdatePredictions(List<CoreMatch> matches);
-        List<CoreUserStatistic> GetUsetStatistics(int seasonId);
+        List<CoreUserStatistic> GetUsersStatistics(int seasonId);
     }
 }
