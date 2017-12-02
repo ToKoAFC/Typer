@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Typer.CoreModels.Models;
+﻿using Typer.CoreModels.Models;
 using Typer.Database.Access;
 using Typer.Services.Interfaces;
 using Typer.ViewModels.Common;
