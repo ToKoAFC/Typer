@@ -3,7 +3,6 @@ using System.Linq;
 using Typer.CoreModels.Models.MatchPrediciton;
 using Typer.Database.Access;
 using Typer.Services.Interfaces;
-using Typer.ViewModels.Common;
 using Typer.ViewModels.Views.Typer;
 
 namespace Typer.Services.Typer

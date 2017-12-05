@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Typer.CoreModels.Models.Match;
-using Typer.CoreModels.Models.MatchPrediction;
 using Typer.Database.Access;
 using Typer.Services.Interfaces;
 using Typer.ViewModels.Common;

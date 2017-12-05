@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using Typer.Database.Access;
 using Typer.Services.Interfaces;
@@ -23,7 +20,7 @@ namespace Typer.Services.Statistic
 
         public List<VMUserStatistic> GetUserStatistics(int seasonId)
         {
-            return _matchPredictionAccess.GetUsetStatistics(seasonId).Select(x => new VMUserStatistic
+            return _matchPredictionAccess.GetUsersStatistics(seasonId).Select(x => new VMUserStatistic
             {
                 Username = x.Username,
                 UserPoints = x.UserPoints

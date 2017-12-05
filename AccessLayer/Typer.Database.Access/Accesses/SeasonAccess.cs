@@ -17,8 +17,16 @@ namespace Typer.Database.Access
 
         public List<CoreSeason> GetSeasons()
         {
-            return _context.DbSeasons.Select(x => new CoreSeason { SeasonId = x.SeasonId, EndYear = x.YearEnd, StartYear = x.YearStart })
-                .OrderByDescending(x => x.StartYear).ToList();
+            return _context.DbSeasons
+                .Select(x =>
+                    new CoreSeason
+                    {
+                        SeasonId = x.SeasonId,
+                        EndYear = x.YearEnd,
+                        StartYear = x.YearStart
+                    })
+                .OrderByDescending(x => x.StartYear)
+                .ToList();
         }
 
         public void AddSeason(CoreNewSeason coreSeason)
